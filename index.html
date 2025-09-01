@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EXTERMIMEX | Fumigación, Desinfección y Extinguidores en Tijuana</title>
+  <meta name="description" content="23+ años de experiencia en control de plagas, sanitización y extinguidores en Tijuana. Técnicos certificados. Cotiza por WhatsApp." />
+
+  <!-- Tailwind (Play CDN) + Config marca -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 900:'#00004F', 800:'#010440', 600:'#0487D9', 500:'#0084DD' },
+            bg: '#F2F2F2'
+          },
+          borderRadius: { xl: '16px', '2xl':'20px' },
+          boxShadow: {
+            card: '0 8px 24px rgba(2,6,23,.08)',
+            soft: '0 6px 18px rgba(2,6,23,.06)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tus estilos (nav + hero + móvil + fixes) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-bg text-brand-800">
+
+  <!-- ====== HEADER (con tu CSS) ====== -->
+  <header class="header">
+    <div class="container nav-flex">
+      <div class="logo-block">
+        <img src="img/logo.svg" alt="EXTERMIMEX logo" class="logo-img">
+        <span class="logo-title">EXTERMIMEX <span class="logo-years">23+ años</span></span>
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li class="dropdown" aria-haspopup="true">
+            <a href="#" class="dropdown-toggle" aria-expanded="false">Servicios</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#fumigacion">Fumigación</a></li>
+              <li><a href="#sanitizacion">Sanitización</a></li>
+              <li><a href="#extinguidores">Extinguidores</a></li>
+              <li><a href="#seguridad">Seguridad y Señalética</a></li>
+              <li><a href="#capacitacion">Capacitación en Extintores</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" aria-haspopup="true">
+            <a href="#" class="dropdown-toggle" aria-expanded="false">Sectores</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#sectores">Hoteles</a></li>
+              <li><a href="#sectores">Industrias</a></li>
+              <li><a href="#sectores">Restaurantes</a></li>
+              <li><a href="#sectores">Salud</a></li>
+              <li><a href="#sectores">Residencial</a></li>
+            </ul>
+          </li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#certificaciones">Certificaciones</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="nav-contact">
+        <a href="tel:664-676-5059" class="nav-phone">664-676-5059</a>
+        <a href="https://wa.me/526646765059" class="btn-primary nav-whatsapp">WhatsApp</a>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menú" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu"></nav>
+  </header>
+  <!-- ====== /HEADER ====== -->
+
+  <!-- ====== HERO (con tu CSS + overlay) ====== -->
+  <section class="hero" aria-label="EXTERMIMEX Hero">
+    <div id="heroCarousel" class="hero-carousel" data-autoplay="true"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <h1 class="hero-title">
+        Fumigación, Desinfección<br />
+        y Extinguidores en Tijuana
+      </h1>
+      <div class="pill hero-pill">
+        23+ años de experiencia en control de plagas y seguridad industrial.
+      </div>
+      <div class="hero-ctas">
+        <a href="https://wa.me/526646765059" class="btn-primary">Cotizar por WhatsApp</a>
+        <a href="tel:664-676-5059" class="btn-outline">Llamar</a>
+        <a href="#certificaciones" class="btn-ghost">Ver certificaciones</a>
+      </div>
+      <div class="hero-dots" role="tablist" aria-label="Control de slides"></div>
+    </div>
+
+    <button class="hero-nav prev" aria-label="Slide anterior" data-dir="prev">‹</button>
+    <button class="hero-nav next" aria-label="Slide siguiente" data-dir="next">›</button>
+  </section>
+  <!-- ====== /HERO ====== -->
+
+  <!-- ====== SOBRE + CERTIFICACIONES (Tailwind) ====== -->
+  <section id="certificaciones" class="py-16 md:py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+        <!-- Columna izquierda: texto -->
+        <article class="lg:col-span-1">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800 mb-3">
+            Sobre EXTERMIMEX
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            Con más de <strong>23 años</strong> en el mercado, ofrecemos soluciones profesionales
+            en <strong>control de plagas, sanitización y sistemas contra incendio</strong>. Nuestro equipo
+            certificado asegura trabajos con los más altos estándares de calidad, seguridad y honestidad.
+          </p>
+          <ul class="mt-5 space-y-2 text-slate-700">
+            <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Atención el mismo día (según disponibilidad).</li>
+            <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Garantía por escrito.</li>
+            <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Técnicos certificados.</li>
+          </ul>
+        </article>
+
+        <!-- Columna derecha: grid de certificaciones -->
+        <div class="lg:col-span-2">
+          <h3 class="text-center lg:text-left text-sm font-semibold uppercase tracking-wide text-slate-500 mb-4">
+            Certificaciones y Avales
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- Card -->
+            <div class="bg-white rounded-xl shadow-card p-6 flex items-center gap-4">
+              <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+                <!-- icono -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 6v12m6-6H6"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-800">COFEPRIS</p>
+                <p class="text-sm text-slate-500">Permisos sanitarios vigentes</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-card p-6 flex items-center gap-4">
+              <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm1 15h-2v-2h2v2Zm0-4h-2V7h2v6Z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-800">CONOCER</p>
+                <p class="text-sm text-slate-500">Técnicos certificados</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-card p-6 flex items-center gap-4">
+              <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 7h16M4 12h16M4 17h16"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-800">NOM-154</p>
+                <p class="text-sm text-slate-500">Extintores y mantenimiento</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-card p-6 flex items-center gap-4">
+              <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M5 12l5 5L20 7"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-800">Seguridad e Higiene</p>
+                <p class="text-sm text-slate-500">Protocolos de operación</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-card p-6 flex items-center gap-4">
+              <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M12 8v8m4-4H8"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-800">Responsable Sanitario</p>
+                <p class="text-sm text-slate-500">Trato directo y seguimiento</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-card p-6 flex items-center gap-4">
+              <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-brand-800">Garantía por Escrito</p>
+                <p class="text-sm text-slate-500">Compromiso y calidad</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ====== /SOBRE + CERTIFICACIONES ====== -->
+   <!-- ====== SERVICIOS (Tailwind) ====== -->
+<section id="servicios" class="py-16 md:py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">
+          Nuestros Servicios
+        </h2>
+        <p class="mt-2 text-slate-600">
+          Soluciones integrales para hogar, comercios e industria, con técnicos certificados y garantía por escrito.
+        </p>
+      </div>
+      <a href="#contacto" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+        Solicitar cotización
+      </a>
+    </div>
+
+    <!-- Grid 6 tarjetas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 1. Fumigación -->
+      <article class="bg-white rounded-2xl shadow-card p-6 hover:shadow-xl transition-shadow border border-slate-100">
+        <div class="flex items-center gap-4">
+          <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+            <!-- Icono plaga -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 2v3m0 14v3m-7-7H2m20 0h-3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M5.64 18.36l2.12-2.12M16.24 7.76l2.12-2.12M8 12a4 4 0 118 0 4 4 0 01-8 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-800">Fumigación / Control de Plagas</h3>
+        </div>
+        <p class="mt-3 text-slate-600">
+          Tratamientos seguros y efectivos para cucarachas, roedores, hormigas, chinches y más.
+        </p>
+        <a href="#fumigacion" class="mt-4 inline-flex items-center font-semibold text-brand-500 hover:underline">
+          Ver servicio →
+        </a>
+      </article>
+
+      <!-- 2. Sanitización -->
+      <article class="bg-white rounded-2xl shadow-card p-6 hover:shadow-xl transition-shadow border border-slate-100">
+        <div class="flex items-center gap-4">
+          <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+            <!-- Icono sanitizar -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2a10 10 0 00-9.95 9h4.2A6 6 0 1112 18v4A10 10 0 0012 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-800">Sanitización / Desinfección</h3>
+        </div>
+        <p class="mt-3 text-slate-600">
+          Nebulización y desinfección de alto contacto para oficinas, restaurantes y espacios de salud.
+        </p>
+        <a href="#sanitizacion" class="mt-4 inline-flex items-center font-semibold text-brand-500 hover:underline">
+          Ver servicio →
+        </a>
+      </article>
+
+      <!-- 3. Venta de Extinguidores -->
+      <article class="bg-white rounded-2xl shadow-card p-6 hover:shadow-xl transition-shadow border border-slate-100">
+        <div class="flex items-center gap-4">
+          <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+            <!-- Icono extintor -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 3h6m-3 0v3m-3 3h6M8 9h8v9a3 3 0 01-3 3H11a3 3 0 01-3-3V9z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-800">Venta de Extinguidores</h3>
+        </div>
+        <p class="mt-3 text-slate-600">
+          Abastecimiento para tu empresa con asesoría en capacidades y normativas.
+        </p>
+        <a href="#extinguidores" class="mt-4 inline-flex items-center font-semibold text-brand-500 hover:underline">
+          Ver servicio →
+        </a>
+      </article>
+
+      <!-- 4. Recarga y Mantenimiento de Extintores -->
+      <article class="bg-white rounded-2xl shadow-card p-6 hover:shadow-xl transition-shadow border border-slate-100">
+        <div class="flex items-center gap-4">
+          <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+            <!-- Icono mantenimiento -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7h18M6 7l1 12a3 3 0 003 3h4a3 3 0 003-3l1-12M10 11h4"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-800">Recarga y Mantenimiento</h3>
+        </div>
+        <p class="mt-3 text-slate-600">
+          Servicio conforme a NOM-154 y bitácoras de mantenimiento actualizadas.
+        </p>
+        <a href="#extinguidores" class="mt-4 inline-flex items-center font-semibold text-brand-500 hover:underline">
+          Ver servicio →
+        </a>
+      </article>
+
+      <!-- 5. Seguridad y Señalética -->
+      <article class="bg-white rounded-2xl shadow-card p-6 hover:shadow-xl transition-shadow border border-slate-100">
+        <div class="flex items-center gap-4">
+          <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+            <!-- Icono señalética -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-800">Seguridad y Señalética</h3>
+        </div>
+        <p class="mt-3 text-slate-600">
+          Señalamientos, rutas de evacuación y equipo de seguridad industrial.
+        </p>
+        <a href="#seguridad" class="mt-4 inline-flex items-center font-semibold text-brand-500 hover:underline">
+          Ver servicio →
+        </a>
+      </article>
+
+      <!-- 6. Capacitación en Extintores -->
+      <article class="bg-white rounded-2xl shadow-card p-6 hover:shadow-xl transition-shadow border border-slate-100">
+        <div class="flex items-center gap-4">
+          <div class="shrink-0 grid place-items-center w-12 h-12 rounded-xl bg-blue-50">
+            <!-- Icono capacitación -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 14l9-5-9-5-9 5 9 5zm0 0v7"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-brand-800">Capacitación en Extintores</h3>
+        </div>
+        <p class="mt-3 text-slate-600">
+          Cursos teórico-prácticos para brigadas y personal operativo.
+        </p>
+        <a href="#capacitacion" class="mt-4 inline-flex items-center font-semibold text-brand-500 hover:underline">
+          Ver servicio →
+        </a>
+      </article>
+    </div>
+
+    <!-- CTA secundaria bajo grid -->
+    <div class="text-center mt-10">
+      <a href="https://wa.me/526646765059" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+        ¿No encuentras lo que buscas? Escríbenos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ====== /SERVICIOS ====== -->
+<!-- ====== SECTORES QUE ATENDEMOS (Tailwind) ====== -->
+<section id="sectores" class="py-16 md:py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">
+          Sectores que Atendemos
+        </h2>
+        <p class="mt-2 text-slate-600">
+          Cobertura profesional para empresas e instituciones con protocolos de seguridad e higiene.
+        </p>
+      </div>
+      <a href="#contacto" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+        Cotizar para mi sector
+      </a>
+    </div>
+
+    <!-- Grid 6 sectores -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+      <!-- 1. Hospitales -->
+      <a href="#contacto" class="group bg-white rounded-2xl shadow-card border border-slate-100 p-5 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-blue-50 mb-3">
+          <!-- ícono hospital -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v18m-9-9h18M7 21V3m10 0v18"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-brand-800">Hospitales</span>
+        <span class="text-xs text-slate-500 mt-1">Áreas críticas y comunes</span>
+      </a>
+
+      <!-- 2. Clínicas -->
+      <a href="#contacto" class="group bg-white rounded-2xl shadow-card border border-slate-100 p-5 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-blue-50 mb-3">
+          <!-- ícono cruz -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14m7-7H5"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-brand-800">Clínicas</span>
+        <span class="text-xs text-slate-500 mt-1">Consultorios, laboratorios</span>
+      </a>
+
+      <!-- 3. Laboratorios -->
+      <a href="#contacto" class="group bg-white rounded-2xl shadow-card border border-slate-100 p-5 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-blue-50 mb-3">
+          <!-- ícono matraz -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M9 3h6M9 3v6l-5 8a3 3 0 002.55 4.5h10.9A3 3 0 0021 17l-5-8V3"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-brand-800">Laboratorios</span>
+        <span class="text-xs text-slate-500 mt-1">BPM y control biológico</span>
+      </a>
+
+      <!-- 4. Hoteles -->
+      <a href="#contacto" class="group bg-white rounded-2xl shadow-card border border-slate-100 p-5 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-blue-50 mb-3">
+          <!-- ícono hotel -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 21V8a2 2 0 012-2h14a2 2 0 012 2v13M7 9h2m6 0h2M7 13h2m6 0h2M3 21h18"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-brand-800">Hoteles</span>
+        <span class="text-xs text-slate-500 mt-1">Habitaciones y áreas comunes</span>
+      </a>
+
+      <!-- 5. Restaurantes -->
+      <a href="#contacto" class="group bg-white rounded-2xl shadow-card border border-slate-100 p-5 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-blue-50 mb-3">
+          <!-- ícono cubiertos -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8 3v8M4 3v8m4 0v10M4 11v10m12-18v7a3 3 0 003 3h1v8"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-brand-800">Restaurantes</span>
+        <span class="text-xs text-slate-500 mt-1">Cocinas y áreas de servicio</span>
+      </a>
+
+      <!-- 6. Industria/Comercio -->
+      <a href="#contacto" class="group bg-white rounded-2xl shadow-card border border-slate-100 p-5 flex flex-col items-center text-center hover:shadow-xl transition-shadow">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-blue-50 mb-3">
+          <!-- ícono industria -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 21V9l6 3V9l6 3V9l6 3v9H3z"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-brand-800">Industria / Comercios</span>
+        <span class="text-xs text-slate-500 mt-1">Plantas, bodegas, retail</span>
+      </a>
+    </div>
+
+    <!-- Nota/CTA inferior -->
+    <p class="text-center text-slate-600 mt-8">
+      ¿Necesitas un sector distinto? <a href="#contacto" class="font-semibold text-brand-500 hover:underline">Contáctanos</a> y te asesoramos.
+    </p>
+  </div>
+</section>
+<!-- ====== /SECTORES ====== -->
+<!-- ====== POR QUÉ ELEGIRNOS (Tailwind) ====== -->
+<section id="porque-elegirnos" class="py-16 md:py-20 bg-white">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">
+        ¿Por qué elegir a EXTERMIMEX?
+      </h2>
+      <p class="mt-3 text-slate-600">
+        Nos distinguimos por la calidad, la rapidez y la atención personalizada.  
+        Más de dos décadas de experiencia respaldan cada servicio.
+      </p>
+    </div>
+
+    <!-- Grid de beneficios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Beneficio 1 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">Técnicos certificados</h3>
+          <p class="text-slate-600 text-sm">Capacitados bajo normas COFEPRIS, CONOCER y NOM-154.</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 2 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m4-4H8"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">Atención el mismo día</h3>
+          <p class="text-slate-600 text-sm">Respuesta rápida y eficiente en Tijuana y alrededores.</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 3 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" viewBox="0 0 24 24" fill="none">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">23+ años de experiencia</h3>
+          <p class="text-slate-600 text-sm">Trayectoria sólida en control de plagas y seguridad industrial.</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 4 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">Garantía por escrito</h3>
+          <p class="text-slate-600 text-sm">Respaldo formal de cada servicio prestado.</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 5 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">Cumplimiento normativo</h3>
+          <p class="text-slate-600 text-sm">Operamos bajo regulaciones oficiales y estándares de calidad.</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 6 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4v4h8v-4c0-2.21-1.79-4-4-4z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">Equipos y químicos seguros</h3>
+          <p class="text-slate-600 text-sm">Productos avalados, sin riesgo para la salud.</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 7 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" viewBox="0 0 24 24" fill="none">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 16h10M5 12h14"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">Cobertura amplia</h3>
+          <p class="text-slate-600 text-sm">Servicios para residencial, comercios e industria.</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 8 -->
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-brand-800">Atención personalizada</h3>
+          <p class="text-slate-600 text-sm">Adaptamos cada solución a las necesidades del cliente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ====== /POR QUÉ ELEGIRNOS ====== -->
+<!-- ====== CLIENTES + TESTIMONIOS (Tailwind) ====== -->
+<section id="clientes" class="py-16 md:py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <!-- Encabezado -->
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">
+        Clientes que confían en EXTERMIMEX
+      </h2>
+      <p class="mt-3 text-slate-600">
+        Atendemos a empresas e instituciones en Tijuana y alrededores, con estándares de calidad y seguridad.
+      </p>
+    </div>
+
+    <!-- Cloud de clientes (chips/logos) -->
+    <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-12">
+      <!-- Ejemplos (cambia por tus logos/nombres) -->
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-soft border border-slate-100">
+        <img src="img/clientes/cliente1.svg" alt="" class="h-5 w-5" />
+        <span class="font-medium text-brand-800 text-sm">Hospital La Frontera</span>
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-soft border border-slate-100">
+        <img src="img/clientes/cliente2.svg" alt="" class="h-5 w-5" />
+        <span class="font-medium text-brand-800 text-sm">Clínica Vida</span>
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-soft border border-slate-100">
+        <img src="img/clientes/cliente3.svg" alt="" class="h-5 w-5" />
+        <span class="font-medium text-brand-800 text-sm">Hotel Costa Azul</span>
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-soft border border-slate-100">
+        <img src="img/clientes/cliente4.svg" alt="" class="h-5 w-5" />
+        <span class="font-medium text-brand-800 text-sm">Grupo Industrial Norte</span>
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-soft border border-slate-100">
+        <img src="img/clientes/cliente5.svg" alt="" class="h-5 w-5" />
+        <span class="font-medium text-brand-800 text-sm">Universidad BC</span>
+      </span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-soft border border-slate-100">
+        <img src="img/clientes/cliente6.svg" alt="" class="h-5 w-5" />
+        <span class="font-medium text-brand-800 text-sm">Restaurante El Puerto</span>
+      </span>
+    </div>
+
+    <!-- Testimonios (2 tarjetas) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Testimonio 1 -->
+      <article class="bg-white rounded-2xl shadow-card p-6 border border-slate-100">
+        <div class="flex items-center gap-3">
+          <img src="img/testimonios/persona1.jpg" alt="Foto de María López" class="h-12 w-12 rounded-full object-cover" />
+          <div>
+            <h3 class="font-semibold text-brand-800 leading-tight">María López</h3>
+            <p class="text-xs text-slate-500">Gerente de Operaciones · Hotel Costa Azul</p>
+          </div>
+        </div>
+
+        <!-- Estrellas -->
+        <div class="flex items-center gap-1 mt-3" aria-label="Calificación 5 de 5">
+          <!-- 5 estrellas -->
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+        </div>
+
+        <p class="mt-3 text-slate-700">
+          “Coordinan todo con nuestro equipo y trabajan rápido sin afectar la operación. Excelente servicio y seguimiento.”
+        </p>
+      </article>
+
+      <!-- Testimonio 2 -->
+      <article class="bg-white rounded-2xl shadow-card p-6 border border-slate-100">
+        <div class="flex items-center gap-3">
+          <img src="img/testimonios/persona2.jpg" alt="Foto de Jorge Ramírez" class="h-12 w-12 rounded-full object-cover" />
+          <div>
+            <h3 class="font-semibold text-brand-800 leading-tight">Jorge Ramírez</h3>
+            <p class="text-xs text-slate-500">Administrador · Grupo Industrial Norte</p>
+          </div>
+        </div>
+
+        <!-- Estrellas -->
+        <div class="flex items-center gap-1 mt-3" aria-label="Calificación 5 de 5">
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+          <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z"/></svg>
+        </div>
+
+        <p class="mt-3 text-slate-700">
+          “Nos ayudaron a cumplir con auditorías y normativas. Puntuales, claros y con garantía por escrito.”
+        </p>
+      </article>
+    </div>
+
+    <!-- CTA inferior -->
+    <div class="text-center mt-10">
+      <a href="#contacto" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+        Solicitar referencias o carta de recomendación
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ====== /CLIENTES + TESTIMONIOS ====== -->
+<!-- ====== NUESTRO EQUIPO (Tailwind + Lightbox) ====== -->
+<section id="equipo" class="py-16 md:py-20 bg-white">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">Nuestro Equipo</h2>
+      <p class="mt-3 text-slate-600">
+        Personas reales detrás del servicio: administración, logística y operación en campo.
+      </p>
+    </div>
+
+    <!-- Grid 3 cards grandes -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <article class="bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden">
+        <button class="block w-full group" data-lightbox data-group="team" data-src="img/equipo/equipo1-xl.jpg" data-caption="Administración — Coordinación de cuentas y seguimiento.">
+          <img src="img/equipo/equipo1.jpg" alt="Equipo de Administración EXTERMIMEX" class="w-full h-64 object-cover group-hover:opacity-95 transition-opacity" />
+        </button>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold text-brand-800">Administración</h3>
+          <p class="text-slate-600 text-sm mt-1">Coordinación de cuentas, facturación y atención a clientes.</p>
+          <div class="mt-3 text-xs inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-brand-800 font-medium">Back Office</div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden">
+        <button class="block w-full group" data-lightbox data-group="team" data-src="img/equipo/equipo2-xl.jpg" data-caption="Logística — Programación y rutas de servicio.">
+          <img src="img/equipo/equipo2.jpg" alt="Equipo de Logística EXTERMIMEX" class="w-full h-64 object-cover group-hover:opacity-95 transition-opacity" />
+        </button>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold text-brand-800">Logística</h3>
+          <p class="text-slate-600 text-sm mt-1">Programación de visitas, rutas y control de insumos.</p>
+          <div class="mt-3 text-xs inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-brand-800 font-medium">Rutas & Operaciones</div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden">
+        <button class="block w-full group" data-lightbox data-group="team" data-src="img/equipo/equipo3-xl.jpg" data-caption="Operaciones — Técnicos certificados en campo.">
+          <img src="img/equipo/equipo3.jpg" alt="Equipo de Operaciones EXTERMIMEX" class="w-full h-64 object-cover group-hover:opacity-95 transition-opacity" />
+        </button>
+        <div class="p-5">
+          <h3 class="text-lg font-semibold text-brand-800">Operaciones</h3>
+          <p class="text-slate-600 text-sm mt-1">Técnicos certificados para fumigación y sistemas contra incendio.</p>
+          <div class="mt-3 text-xs inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-brand-800 font-medium">Campo</div>
+        </div>
+      </article>
+    </div>
+
+    <!-- CTA inferior -->
+    <div class="text-center mt-10">
+      <a href="https://wa.me/526646765059" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+        ¿Necesitas cuadrilla hoy? Escríbenos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ====== /NUESTRO EQUIPO ====== -->
+<!-- ====== CTA URGENTE (Tailwind) ====== -->
+<section id="cta-urgente" class="py-14 md:py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="bg-white rounded-2xl shadow-card border border-slate-100 p-6 md:p-10 text-center">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">
+        ¿Necesitas servicio hoy?
+      </h2>
+      <p class="mt-2 text-slate-600 max-w-2xl mx-auto">
+        Atención el mismo día <span class="text-slate-500">(según disponibilidad)</span>. Escríbenos por WhatsApp o llámanos para agendar.
+      </p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a href="https://wa.me/526646765059" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+          Cotizar por WhatsApp
+        </a>
+        <a href="tel:664-676-5059" class="inline-flex items-center px-5 py-3 rounded-xl bg-white text-brand-500 font-semibold border-2 border-brand-500 hover:bg-blue-50">
+          Llamarnos ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ====== /CTA URGENTE ====== -->
+<!-- ====== CONTACTO (Tailwind) ====== -->
+<section id="contacto" class="py-16 md:py-20 bg-white">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">Contáctanos</h2>
+      <p class="mt-3 text-slate-600">
+        Cuéntanos qué necesitas. Te respondemos a la brevedad.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Formulario -->
+      <div class="bg-white rounded-2xl shadow-card border border-slate-100 p-6 md:p-8">
+        <form id="contactForm" class="space-y-4" autocomplete="on">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-brand-800">Nombre</label>
+              <input id="name" name="name" type="text" required
+                     class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-500" placeholder="Tu nombre">
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-brand-800">Teléfono</label>
+              <input id="phone" name="phone" type="tel" required
+                     class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-500" placeholder="664 000 0000">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="email" class="block text-sm font-medium text-brand-800">Correo</label>
+              <input id="email" name="email" type="email" required
+                     class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-500" placeholder="tucorreo@dominio.com">
+            </div>
+            <div>
+              <label for="service" class="block text-sm font-medium text-brand-800">Servicio</label>
+              <select id="service" name="service"
+                      class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-500">
+                <option value="Fumigación">Fumigación</option>
+                <option value="Sanitización">Sanitización</option>
+                <option value="Extinguidores">Extinguidores</option>
+                <option value="Seguridad y Señalética">Seguridad y Señalética</option>
+                <option value="Capacitación en Extintores">Capacitación en Extintores</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-brand-800">Mensaje</label>
+            <textarea id="message" name="message" rows="4"
+                      class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-brand-500"
+                      placeholder="Describe tu necesidad, dirección aproximada y horarios preferidos"></textarea>
+          </div>
+
+          <!-- Honeypot anti-bots -->
+          <input type="text" name="company" id="company" class="hidden" tabindex="-1" autocomplete="off" />
+
+          <div class="flex items-center gap-3 pt-2">
+            <button type="submit"
+                    class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+              Enviar por WhatsApp
+            </button>
+            <a href="mailto:extermi-mex@hotmail.com" class="inline-flex items-center px-5 py-3 rounded-xl bg-white text-brand-500 font-semibold border-2 border-brand-500 hover:bg-blue-50">
+              Enviar por correo
+            </a>
+          </div>
+
+          <p id="formMsg" class="text-sm text-slate-600 pt-2"></p>
+        </form>
+      </div>
+
+      <!-- NAP + Mapa -->
+      <aside class="space-y-4">
+        <div class="bg-white rounded-2xl shadow-card border border-slate-100 p-6">
+          <h3 class="text-lg font-semibold text-brand-800">EXTERMIMEX de BC</h3>
+          <ul class="mt-3 space-y-2 text-slate-700">
+            <li><strong>Dirección:</strong> Libramiento Nueva Aurora 6409, Nueva Aurora, Tijuana, BC 22604</li>
+            <li><strong>Tel:</strong> <a class="text-brand-500 hover:underline" href="tel:664-676-5059">664-676-5059</a> · <a class="text-brand-500 hover:underline" href="tel:664-230-4184">664-230-4184</a> · <a class="text-brand-500 hover:underline" href="tel:664-186-4506">664-186-4506</a></li>
+            <li><strong>Correo:</strong> <a class="text-brand-500 hover:underline" href="mailto:extermi-mex@hotmail.com">extermi-mex@hotmail.com</a></li>
+            <li><strong>Horarios:</strong> L–V 08:00–22:00 · S 08:00–14:00 · D Cerrado</li>
+          </ul>
+          <div class="mt-4">
+            <a href="https://wa.me/526646765059" class="inline-flex items-center px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+              WhatsApp directo
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden">
+          <div class="aspect-[16/10] w-full">
+            <!-- Puedes cambiar q= por el place_id si lo tienes -->
+            <iframe
+              title="Mapa EXTERMIMEX"
+              class="w-full h-full border-0"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Libramiento%20Nueva%20Aurora%206409%2C%20Tijuana%2C%20BC%2022604&output=embed">
+            </iframe>
+          </div>
+          <div class="p-3 text-center">
+            <a class="text-brand-500 font-semibold hover:underline"
+               href="https://www.google.com/maps/search/?api=1&query=Libramiento%20Nueva%20Aurora%206409%2C%20Tijuana%2C%20BC%2022604" target="_blank" rel="noopener">
+              Abrir en Google Maps
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+<!-- ====== /CONTACTO ====== -->
+<!-- ====== FOOTER (oscuro, 4 columnas) ====== -->
+<footer class="bg-[#00004F] text-white pt-14 md:pt-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Col 1: Marca -->
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="img/logo.svg" alt="EXTERMIMEX logo" class="h-8 w-8 object-contain" />
+          <span class="text-lg font-bold tracking-wide">EXTERMIMEX</span>
+        </div>
+        <p class="mt-4 text-sm text-white/80 max-w-xs">
+          Fumigación, desinfección y sistemas contra incendio en Tijuana. 23+ años de experiencia, técnicos certificados y garantía por escrito.
+        </p>
+        <div class="mt-5 flex items-center gap-2 text-xs text-white/70">
+          <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">COFEPRIS</span>
+          <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">CONOCER</span>
+          <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">NOM-154</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Servicios -->
+      <div>
+        <h3 class="text-sm font-semibold tracking-wide uppercase text-white/80">Servicios</h3>
+        <ul class="mt-4 space-y-2 text-white/90">
+          <li><a class="hover:underline" href="#fumigacion">Fumigación / Plagas</a></li>
+          <li><a class="hover:underline" href="#sanitizacion">Sanitización / Desinfección</a></li>
+          <li><a class="hover:underline" href="#extinguidores">Venta de Extinguidores</a></li>
+          <li><a class="hover:underline" href="#extinguidores">Recarga y Mantenimiento</a></li>
+          <li><a class="hover:underline" href="#seguridad">Seguridad y Señalética</a></li>
+          <li><a class="hover:underline" href="#capacitacion">Capacitación en Extintores</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Enlaces -->
+      <div>
+        <h3 class="text-sm font-semibold tracking-wide uppercase text-white/80">Enlaces</h3>
+        <ul class="mt-4 space-y-2 text-white/90">
+          <li><a class="hover:underline" href="#sectores">Sectores</a></li>
+          <li><a class="hover:underline" href="#porque-elegirnos">¿Por qué elegirnos?</a></li>
+          <li><a class="hover:underline" href="#clientes">Clientes y Testimonios</a></li>
+          <li><a class="hover:underline" href="#equipo">Nuestro Equipo</a></li>
+          <li><a class="hover:underline" href="#contacto">Contáctanos</a></li>
+          <li><a class="hover:underline" href="aviso-de-privacidad.html">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contacto -->
+      <div>
+        <h3 class="text-sm font-semibold tracking-wide uppercase text-white/80">Contacto</h3>
+        <ul class="mt-4 space-y-2 text-white/90">
+          <li><strong>Dirección:</strong><br/>Libramiento Nueva Aurora 6409, Nueva Aurora,<br/>Tijuana, BC 22604</li>
+          <li><strong>Tel:</strong>
+            <a class="hover:underline" href="tel:664-676-5059">664-676-5059</a> ·
+            <a class="hover:underline" href="tel:664-230-4184">664-230-4184</a> ·
+            <a class="hover:underline" href="tel:664-186-4506">664-186-4506</a>
+          </li>
+          <li><strong>Correo:</strong> <a class="hover:underline" href="mailto:extermi-mex@hotmail.com">extermi-mex@hotmail.com</a></li>
+          <li><strong>Horarios:</strong> L–V 08:00–22:00 · S 08:00–14:00 · D Cerrado</li>
+        </ul>
+        <div class="mt-4 flex gap-2">
+          <a href="https://wa.me/526646765059" class="inline-flex items-center px-4 py-2 rounded-xl bg-white text-[#00004F] font-semibold hover:bg-white/90">
+            WhatsApp
+          </a>
+          <a href="tel:664-676-5059" class="inline-flex items-center px-4 py-2 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10">
+            Llamar
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Línea y copyright -->
+    <div class="mt-10 border-t border-white/15 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-white/70">
+        © <span id="yearCopy">2025</span> EXTERMIMEX de BC. Todos los derechos reservados.
+      </p>
+      <p class="text-xs text-white/60">
+        Hecho con ♥ en Tijuana · <a href="#contacto" class="hover:underline">Contáctanos</a>
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- ====== /FOOTER ====== -->
+
+<!-- ====== BOTÓN FLOTANTE WHATSAPP ====== -->
+<a href="https://wa.me/526646765059"
+   class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-[0_10px_30px_rgba(0,0,0,.2)] hover:scale-[1.03] active:scale-100 transition will-change-transform"
+   aria-label="Abrir chat de WhatsApp">
+  <!-- ícono WA -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M19.11 17.29a7.88 7.88 0 0 1-3.4-3.4c-.11-.22-.05-.4.08-.57l.63-.8c.18-.23.23-.52.12-.8l-.85-2.14c-.18-.45-.7-.67-1.15-.49a4.3 4.3 0 0 0-2.47 2.46c-.63 1.5-.2 3.37 1.22 5.37 1.76 2.45 3.96 3.96 6.55 4.53 1.08.23 2.07.07 2.88-.29a4.3 4.3 0 0 0 2.18-2.06c.22-.44.02-.97-.42-1.16l-2.1-.9a.86.86 0 0 0-.82.1l-.82.55c-.18.12-.41.16-.63.09Z"/>
+    <path d="M26.5 14.5a10.5 10.5 0 1 0-4.1 8.27l3.47 1.16c.54.18 1.07-.35.89-.89l-1.16-3.47a10.46 10.46 0 0 0 .9-5.07Zm-10.5 9a9 9 0 1 1 9-9 9.01 9.01 0 0 1-9 9Z"/>
+  </svg>
+  <span class="hidden sm:inline">WhatsApp</span>
+</a>
+<!-- ====== /BOTÓN FLOTANTE WHATSAPP ====== -->
+
+
+  <script src="main.js"></script>
+</body>
+</html>
