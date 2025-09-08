@@ -27,50 +27,22 @@
   </script>
 
   <!-- Tus estilos (nav + hero + móvil + fixes) -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body class="bg-bg text-brand-800">
 
-  <!-- ====== HEADER (con tu CSS) ====== -->
-  <header class="header">
-    <div class="container nav-flex">
-      <div class="logo-block">
-  <img src="./assets/img/BC Extermi-Mex.png" alt="EXTERMIMEX logo" class="logo-img" style="height:48px;width:auto;object-fit:contain;">
-        <span class="logo-title"><span class="logo-years">23+ años</span></span>
-      </div>
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li class="dropdown" aria-haspopup="true">
-            <a href="pages/servicios-fumigacion.html" class="dropdown-toggle" aria-expanded="false">Servicios</a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="pages/servicios-fumigacion.html">Fumigación</a></li>
-              <li><a href="pages/servicios-sanitizacion.html">Sanitización</a></li>
-              <li><a href="pages/servicios-extinguidores.html">Extinguidores</a></li>
-              <li><a href="pages/servicios-extinguidores.html">Seguridad y Señalética</a></li>
-              <li><a href="pages/servicios-capacitacion.html">Capacitación en Extintores</a></li>
-            </ul>
-          </li>
-          <li><a href="pages/clientes.html">Clientes</a></li>
-          <li><a href="pages/certificaciones.html">Certificaciones</a></li>
-          <li><a href="pages/nosotros.html">Nosotros</a></li>
-          <li><a href="pages/contacto.html">Contacto</a></li>
-          <li><a href="pages/aviso-de-privacidad.html">Aviso de Privacidad</a></li>
-        </ul>
-      </nav>
-      <div class="nav-contact">
-  <a href="tel:664-676-5059" class="nav-phone">664-676-5059</a>
-  <!-- <a href="https://wa.me/526646765059" class="btn-primary nav-whatsapp">WhatsApp</a> -->
-      </div>
-      <button class="nav-toggle" aria-label="Abrir menú" id="navToggle"><span></span><span></span><span></span></button>
-    </div>
-    <nav class="mobile-menu" id="mobileMenu"></nav>
-  </header>
+  <!-- ====== HEADER (INCLUDE) ====== -->
+  <div id="header-include"></div>
   <!-- ====== /HEADER ====== -->
 
   <!-- ====== HERO (con tu CSS + overlay) ====== -->
   <section class="hero" aria-label="EXTERMIMEX Hero">
-    <div id="heroCarousel" class="hero-carousel" data-autoplay="true"></div>
+    <div id="heroCarousel" class="hero-carousel" data-autoplay="true">
+      <div class="hero-slide is-active">
+        <img src="assets/img/Fondo extermimex.jpg" alt="Equipo Extermimex y logo" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <!-- Puedes agregar más slides aquí si lo deseas -->
+    </div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content container">
@@ -442,7 +414,7 @@
     <!-- Nota/CTA inferior -->
     <p class="text-center text-slate-600 mt-8">
       ¿Necesitas un sector distinto? <a href="#contacto" class="font-semibold text-brand-500 hover:underline">Contáctanos</a> y te asesoramos.
-    </p>
+  </p>
   </div>
 </section>
 <!-- ====== /SECTORES ====== -->
@@ -678,7 +650,7 @@
       <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">Nuestro Equipo</h2>
       <p class="mt-3 text-slate-600">
         Personas reales detrás del servicio: administración, logística y operación en campo.
-      </p>
+  </p>
     </div>
 
     <!-- Grid 3 cards grandes -->
@@ -860,103 +832,18 @@
   </div>
 </section>
 <!-- ====== /CONTACTO ====== -->
-<!-- ====== FOOTER (oscuro, 4 columnas) ====== -->
-<footer class="bg-[#00004F] text-white pt-14 md:pt-16">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-      <!-- Col 1: Marca -->
-      <div>
-        <div class="flex items-center gap-3">
-  <img src="assets/img/logo-extermimex.png" alt="EXTERMIMEX logo" class="h-8 w-auto object-contain" />
-          <span class="text-lg font-bold tracking-wide">EXTERMIMEX</span>
-        </div>
-        <p class="mt-4 text-sm text-white/80 max-w-xs">
-          Fumigación, desinfección y sistemas contra incendio en Tijuana. 23+ años de experiencia, técnicos certificados y garantía por escrito.
-        </p>
-        <div class="mt-5 flex items-center gap-2 text-xs text-white/70">
-          <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">COFEPRIS</span>
-          <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">CONOCER</span>
-          <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">NOM-154</span>
-        </div>
-      </div>
 
-      <!-- Col 2: Servicios -->
-      <div>
-        <h3 class="text-sm font-semibold tracking-wide uppercase text-white/80">Servicios</h3>
-        <ul class="mt-4 space-y-2 text-white/90">
-          <li><a class="hover:underline" href="#fumigacion">Fumigación / Plagas</a></li>
-          <li><a class="hover:underline" href="#sanitizacion">Sanitización / Desinfección</a></li>
-          <li><a class="hover:underline" href="#extinguidores">Venta de Extinguidores</a></li>
-          <li><a class="hover:underline" href="#extinguidores">Recarga y Mantenimiento</a></li>
-          <li><a class="hover:underline" href="#seguridad">Seguridad y Señalética</a></li>
-          <li><a class="hover:underline" href="#capacitacion">Capacitación en Extintores</a></li>
-        </ul>
-      </div>
 
-      <!-- Col 3: Enlaces -->
-      <div>
-        <h3 class="text-sm font-semibold tracking-wide uppercase text-white/80">Enlaces</h3>
-        <ul class="mt-4 space-y-2 text-white/90">
-          <li><a class="hover:underline" href="#sectores">Sectores</a></li>
-          <li><a class="hover:underline" href="#porque-elegirnos">¿Por qué elegirnos?</a></li>
-          <li><a class="hover:underline" href="#clientes">Clientes y Testimonios</a></li>
-          <li><a class="hover:underline" href="#equipo">Nuestro Equipo</a></li>
-          <li><a class="hover:underline" href="#contacto">Contáctanos</a></li>
-          <li><a class="hover:underline" href="pages/aviso-de-privacidad.html">Aviso de privacidad</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Contacto -->
-      <div>
-        <h3 class="text-sm font-semibold tracking-wide uppercase text-white/80">Contacto</h3>
-        <ul class="mt-4 space-y-2 text-white/90">
-          <li><strong>Dirección:</strong><br/>Libramiento Nueva Aurora 6409, Nueva Aurora,<br/>Tijuana, BC 22604</li>
-          <li><strong>Tel:</strong>
-            <a class="hover:underline" href="tel:664-676-5059">664-676-5059</a> ·
-            <a class="hover:underline" href="tel:664-230-4184">664-230-4184</a> ·
-            <a class="hover:underline" href="tel:664-186-4506">664-186-4506</a>
-          </li>
-          <li><strong>Correo:</strong> <a class="hover:underline" href="mailto:extermi-mex@hotmail.com">extermi-mex@hotmail.com</a></li>
-          <li><strong>Horarios:</strong> L–V 08:00–22:00 · S 08:00–14:00 · D Cerrado</li>
-        </ul>
-        <div class="mt-4 flex gap-2">
-          <a href="https://wa.me/526646765059" class="inline-flex items-center px-4 py-2 rounded-xl bg-white text-[#00004F] font-semibold hover:bg-white/90">
-            WhatsApp
-          </a>
-          <a href="tel:664-676-5059" class="inline-flex items-center px-4 py-2 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10">
-            Llamar
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Línea y copyright -->
-    <div class="mt-10 border-t border-white/15 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
-      <p class="text-xs text-white/70">
-        © <span id="yearCopy">2025</span> EXTERMIMEX de BC. Todos los derechos reservados.
-      </p>
-      <p class="text-xs text-white/60">
-        Hecho con ♥ en Tijuana · <a href="#contacto" class="hover:underline">Contáctanos</a>
-      </p>
-    </div>
-  </div>
-</footer>
+<!-- ====== FOOTER (INCLUDE) ====== -->
+<div id="footer-include"></div>
 <!-- ====== /FOOTER ====== -->
 
-<!-- ====== BOTÓN FLOTANTE WHATSAPP ====== -->
-<a href="https://wa.me/526646765059"
-   class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-[0_10px_30px_rgba(0,0,0,.2)] hover:scale-[1.03] active:scale-100 transition will-change-transform"
-   aria-label="Abrir chat de WhatsApp">
-  <!-- ícono WA -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-    <path d="M19.11 17.29a7.88 7.88 0 0 1-3.4-3.4c-.11-.22-.05-.4.08-.57l.63-.8c.18-.23.23-.52.12-.8l-.85-2.14c-.18-.45-.7-.67-1.15-.49a4.3 4.3 0 0 0-2.47 2.46c-.63 1.5-.2 3.37 1.22 5.37 1.76 2.45 3.96 3.96 6.55 4.53 1.08.23 2.07.07 2.88-.29a4.3 4.3 0 0 0 2.18-2.06c.22-.44.02-.97-.42-1.16l-2.1-.9a.86.86 0 0 0-.82.1l-.82.55c-.18.12-.41.16-.63.09Z"/>
-    <path d="M26.5 14.5a10.5 10.5 0 1 0-4.1 8.27l3.47 1.16c.54.18 1.07-.35.89-.89l-1.16-3.47a10.46 10.46 0 0 0 .9-5.07Zm-10.5 9a9 9 0 1 1 9-9 9.01 9.01 0 0 1-9 9Z"/>
-  </svg>
-  <span class="hidden sm:inline">WhatsApp</span>
-</a>
+<!-- ====== BOTÓN FLOTANTE WHATSAPP (INCLUDE) ====== -->
+<div id="wa-float-include"></div>
 <!-- ====== /BOTÓN FLOTANTE WHATSAPP ====== -->
 
 
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/includes.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

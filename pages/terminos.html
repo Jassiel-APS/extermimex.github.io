@@ -48,9 +48,9 @@
   <!-- ====== NAVBAR (igual que el resto del sitio) ====== -->
   <header class="header">
     <div class="container nav-flex">
-      <div class="logo-block">
-        <img src="img/logo.svg" alt="EXTERMIMEX logo" class="logo-img">
-        <span class="logo-title">EXTERMIMEX <span class="logo-years">23+ años</span></span>
+    <div class="logo-block">
+      <img src="img/logo.svg" alt="EXTERMIMEX logo" class="logo-img">
+      <span class="logo-title">EXTERMIMEX <span class="logo-years">23+ años</span></span>
       </div>
       <nav class="nav-menu">
         <ul>
@@ -76,6 +76,7 @@
     </div>
     <nav class="mobile-menu" id="mobileMenu"></nav>
   </header>
+    <div id="header-include"></div>
   <!-- ====== /NAVBAR ====== -->
 
   <!-- ====== CONTENIDO ====== -->
@@ -230,62 +231,12 @@
   <!-- ====== FOOTER + WA (igual que en otras páginas) ====== -->
   <footer class="bg-[#00004F] text-white pt-14 md:pt-16">
     <div class="max-w-[1200px] mx-auto px-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div>
-          <div class="flex items-center gap-3">
-            <img src="img/logo.svg" alt="EXTERMIMEX logo" class="h-8 w-8 object-contain"/>
-            <span class="text-lg font-bold tracking-wide">EXTERMIMEX</span>
-          </div>
-          <p class="mt-4 text-sm text-white/80 max-w-xs">Fumigación, desinfección y sistemas contra incendio en Tijuana.</p>
-          <div class="mt-5 flex items-center gap-2 text-xs text-white/70">
-            <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">COFEPRIS</span>
-            <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">CONOCER</span>
-            <span class="inline-block px-2 py-1 rounded-full bg-white/10 border border-white/15">NOM-154</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold uppercase text-white/80">Legales</h3>
-          <ul class="mt-4 space-y-2 text-white/90">
-            <li><a class="hover:underline" href="terminos.html">Términos y Condiciones</a></li>
-            <li><a class="hover:underline" href="privacidad.html">Política de Privacidad</a></li>
-            <li><a class="hover:underline" href="aviso-de-privacidad.html">Aviso de Privacidad</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold uppercase text-white/80">Contacto</h3>
-          <ul class="mt-4 space-y-2 text-white/90">
-            <li>Libramiento Nueva Aurora 6409, Tijuana, BC</li>
-            <li><a class="hover:underline" href="tel:664-676-5059">664-676-5059</a></li>
-            <li><a class="hover:underline" href="mailto:extermi-mex@hotmail.com">extermi-mex@hotmail.com</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold uppercase text-white/80">Horarios</h3>
-          <p class="mt-4 text-white/90">L–V 08:00–22:00 · S 08:00–14:00 · D Cerrado</p>
-        </div>
-      </div>
-      <div class="mt-10 border-t border-white/15 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-white/70">© <span id="yearCopy">2025</span> EXTERMIMEX de BC. Todos los derechos reservados.</p>
-        <p class="text-xs text-white/60">Tijuana, Baja California</p>
-      </div>
-    </div>
-  </footer>
-
-  <a href="https://wa.me/526646765059"
-     class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-[0_10px_30px_rgba(0,0,0,.2)] hover:scale-[1.03] transition"
-     aria-label="Abrir chat de WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29a7.88 7.88 0 0 1-3.4-3.4c-.11-.22-.05-.4.08-.57l.63-.8c.18-.23.23-.52.12-.8l-.85-2.14c-.18-.45-.7-.67-1.15-.49a4.3 4.3 0 0 0-2.47 2.46c-.63 1.5-.2 3.37 1.22 5.37 1.76 2.45 3.96 3.96 6.55 4.53 1.08.23 2.07.07 2.88-.29a4.3 4.3 0 0 0 2.18-2.06c.22-.44.02-.97-.42-1.16l-2.1-.9a.86.86 0 0 0-.82.1l-.82.55c-.18.12-.41.16-.63.09Z"/><path d="M26.5 14.5a10.5 10.5 0 1 0-4.1 8.27l3.47 1.16c.54.18 1.07-.35.89-.89l-1.16-3.47a10.46 10.46 0 0 0 .9-5.07Zm-10.5 9a9 9 0 1 1 9-9 9.01 9.01 0 0 1-9 9Z"/></svg>
-    <span class="hidden sm:inline">WhatsApp</span>
-  </a>
+    <div id="footer-include"></div>
+    <div id="wa-float-include"></div>
   <!-- ====== /FOOTER + WA ====== -->
 
   <!-- ====== SCRIPTS ====== -->
   <script src="main.js"></script>
-  <script>
-    // Fecha de actualización (hoy) y año en footer
-    document.getElementById('tc-date').textContent =
-      new Date().toLocaleDateString('es-MX', {year:'numeric', month:'numeric', day:'numeric'});
-    const y = document.getElementById('yearCopy'); if (y) y.textContent = new Date().getFullYear();
-  </script>
+  <script src="includes.js"></script>
 </body>
 </html>

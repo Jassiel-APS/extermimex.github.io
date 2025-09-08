@@ -10,46 +10,16 @@
   <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body class="bg-[#F2F2F2] text-slate-900">
-  <!-- Header -->
-  <header class="header">
-    <div class="container nav-flex">
-      <div class="logo-block">
-  <img src="../assets/img/logo-extermimex.png" class="logo-img" alt="EXTERMIMEX logo" style="height:48px;width:auto;object-fit:contain;">
-        <span class="logo-title">EXTERMIMEX <span class="logo-years">23+ años</span></span>
-      </div>
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#">Servicios</a>
-            <ul class="dropdown-menu">
-              <li><a href="servicios-fumigacion.html">Fumigación</a></li>
-              <li><a href="servicios-sanitizacion.html">Sanitización</a></li>
-              <li><a href="servicios-extinguidores.html">Extinguidores</a></li>
-              <li><a href="servicios-senaletica.html">Seguridad y Señalética</a></li>
-              <li><a href="servicios-capacitacion.html">Capacitación en Extintores</a></li>
-            </ul>
-          </li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a class="active" href="certificaciones.html">Certificaciones</a></li>
-          <li><a href="clientes.html">Clientes</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      <div class="nav-contact">
-        <a href="tel:664-676-5059" class="nav-phone">664-676-5059</a>
-        <a href="https://wa.me/526646765059" class="btn-primary nav-whatsapp">WhatsApp</a>
-      </div>
-      <button class="nav-toggle" aria-label="Abrir menú" id="navToggle"><span></span><span></span><span></span></button>
-    </div>
-    <nav class="mobile-menu" id="mobileMenu"></nav>
-  </header>
+ 
+<!-- Header modular -->
+<div id="header-include"></div>
+
 
   <!-- Hero -->
   <section class="bg-white/70">
     <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16">
       <nav class="text-sm text-slate-500 mb-3">
-        <a href="index.html" class="hover:underline">Inicio</a> / <span>Certificaciones</span>
+  <a href="../index.html" class="hover:underline">Inicio</a> / <span>Certificaciones</span>
       </nav>
       <h1 class="text-3xl md:text-4xl font-extrabold text-[#010440]">Nuestras Certificaciones</h1>
       <p class="mt-3 text-slate-600 max-w-3xl">Contamos con todas las certificaciones oficiales requeridas para brindar servicios profesionales de control de plagas y seguridad industrial en México.</p>
@@ -90,90 +60,16 @@
     </div>
   </section>
 
-  <!-- Cumplimiento -->
-  <section class="bg-[#F7F7FA]">
-    <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16">
-      <h2 class="text-2xl font-bold text-center text-[#010440]">Cumplimiento Normativo</h2>
-      <p class="text-center text-slate-600 mt-2">Cumplimos estrictamente con NOMs y protocolos oficiales.</p>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow">
-          <p class="font-semibold">Normas Oficiales Mexicanas</p>
-          <ul class="mt-3 text-sm text-slate-700 space-y-1 list-disc ml-5">
-            <li>NOM-032-STPS-2008</li><li>NOM-018-STPS-2000</li><li>NOM-026-STPS-2008</li>
-          </ul>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow">
-          <p class="font-semibold">Certificaciones de Producto</p>
-          <ul class="mt-3 text-sm text-slate-700 space-y-1 list-disc ml-5">
-            <li>Productos COFEPRIS</li><li>Equipos certificados</li><li>Materiales seguros</li>
-          </ul>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow">
-          <p class="font-semibold">Protocolos de Seguridad</p>
-          <ul class="mt-3 text-sm text-slate-700 space-y-1 list-disc ml-5">
-            <li>EPP obligatorio</li><li>Procedimientos seguros</li><li>Capacitación continua</li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
+    
+  <!-- Footer modular -->
+  <div id="footer-include"></div>
 
-  <!-- CTA -->
-  <section class="bg-white">
-    <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16 text-center">
-      <h3 class="text-xl md:text-2xl font-extrabold text-[#010440]">Confía en profesionales certificados</h3>
-      <p class="text-slate-600 mt-2">Solicita tu cotización con la tranquilidad de trabajar con expertos.</p>
-      <a href="contacto.html" class="mt-5 inline-flex px-5 py-3 rounded-xl bg-[#0084DD] text-white font-semibold shadow hover:bg-[#0487D9]">Contactar</a>
-    </div>
-  </section>
+  <!-- WhatsApp modular -->
+  <div id="wa-float-include"></div>
 
-  <!-- Footer -->
-  <footer class="bg-[#00004F] text-white pt-14 md:pt-16">
-    <div class="max-w-[1200px] mx-auto px-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div>
-          <div class="flex items-center gap-3">
-            <img src="../assets/img/logo-extermimex.png" alt="EXTERMIMEX logo" class="h-8 w-auto object-contain"/>
-            <span class="text-lg font-bold">EXTERMIMEX</span>
-          </div>
-          <p class="mt-4 text-sm text-white/80 max-w-xs">Fumigación, desinfección y sistemas contra incendio en Tijuana.</p>
-          <div class="mt-5 flex items-center gap-2 text-xs text-white/70">
-            <span class="px-2 py-1 rounded-full bg-white/10 border border-white/15">COFEPRIS</span>
-            <span class="px-2 py-1 rounded-full bg-white/10 border border-white/15">CONOCER</span>
-            <span class="px-2 py-1 rounded-full bg-white/10 border border-white/15">NOM-154</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold uppercase text-white/80">Legales</h3>
-          <ul class="mt-4 space-y-2 text-white/90">
-            <li><a class="hover:underline" href="terminos.html">Términos y Condiciones</a></li>
-            <li><a class="hover:underline" href="privacidad.html">Política de Privacidad</a></li>
-            <li><a class="hover:underline" href="aviso-de-privacidad.html">Aviso de Privacidad</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold uppercase text-white/80">Contacto</h3>
-          <ul class="mt-4 space-y-2 text-white/90">
-            <li>Libramiento Nueva Aurora 6409, Tijuana, BC</li>
-            <li><a class="hover:underline" href="tel:664-676-5059">664-676-5059</a></li>
-            <li><a class="hover:underline" href="mailto:extermi-mex@hotmail.com">extermi-mex@hotmail.com</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold uppercase text-white/80">Horarios</h3>
-          <p class="mt-4 text-white/90">L–V 08:00–22:00 · S 08:00–14:00 · D Cerrado</p>
-        </div>
-      </div>
-      <div class="mt-10 border-t border-white/15 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-white/70">© <span id="yearCopy">2025</span> EXTERMIMEX de BC. Todos los derechos reservados.</p>
-        <p class="text-xs text-white/60">Tijuana, Baja California</p>
-      </div>
-    </div>
-  </footer>
-
-  <a href="https://wa.me/526646765059" class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-[0_10px_30px_rgba(0,0,0,.2)] hover:scale-[1.03] transition">WhatsApp</a>
-
+  <script src="../assets/js/includes.js"></script>
   <script src="../assets/js/main.js"></script>
-  <script>const y=document.getElementById('yearCopy'); if(y) y.textContent=new Date().getFullYear();</script>
 </body>
 </html>

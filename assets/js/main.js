@@ -1,44 +1,89 @@
-// ===== NAV MÓVIL (clona menú de escritorio)
-document.addEventListener('DOMContentLoaded', function () {
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const desktopMenu = document.querySelector('.nav-menu ul');
+/* =========================================================
+   EXTERMIMEX — main.js (robusto con espera de header)
+   ========================================================= */
 
-  if (desktopMenu && mobileMenu) {
-    mobileMenu.innerHTML = '';
-    const mobileUl = desktopMenu.cloneNode(true);
-    mobileUl.querySelectorAll('.dropdown').forEach((li) => {
-      const trigger = li.querySelector('a');
-      trigger.addEventListener('click', (e) => {
+// ---------- helpers ----------
+const $ = (sel, root = document) => root.querySelector(sel);
+
+// ========= NAV DRAWER (mobileMenu) =========
+(function () {
+  function openMenu(menu) {
+    if (!menu) return;
+    menu.classList.add('open');
+    document.body.classList.add('no-scroll');
+  }
+
+  function closeMenu(menu) {
+    if (!menu) return;
+    menu.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+  }
+
+  function bindNav() {
+    const navToggle  = $('#navToggle');
+    const mobileMenu = $('#mobileMenu');
+
+    if (!navToggle || !mobileMenu) return false;
+
+    // Botón hamburguesa
+    navToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      mobileMenu.classList.contains('open') ? closeMenu(mobileMenu) : openMenu(mobileMenu);
+    });
+
+    // Botón de cerrar dentro del panel (si existe)
+    const closeBtn = $('.mobile-menu-close', mobileMenu);
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        li.classList.toggle('open');
+        closeMenu(mobileMenu);
       });
-    });
-    mobileMenu.appendChild(mobileUl);
-    const contactDiv = document.createElement('div');
-    contactDiv.style.marginTop = '32px';
-    contactDiv.innerHTML = `
-      <a href="tel:664-676-5059" class="nav-phone">664-676-5059</a>
-      <a href="https://wa.me/526646765059" class="btn-primary" style="margin-left:12px;">WhatsApp</a>`;
-    mobileMenu.appendChild(contactDiv);
-  }
-  if (navToggle && mobileMenu) {
-    navToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-  }
-  document.addEventListener('click', (e) => {
-    if (mobileMenu.classList.contains('open') &&
-        !mobileMenu.contains(e.target) &&
-        !e.target.closest('#navToggle')) {
-      mobileMenu.classList.remove('open');
     }
-  });
-});
 
-// ===== HERO CAROUSEL (mixto imagen/video)
+    // Cerrar si clic fuera del panel
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.classList.contains('open')) return;
+      const content = $('.mobile-menu-content', mobileMenu);
+      const clickedToggle = e.target.closest('#navToggle');
+      const insideContent = content && content.contains(e.target);
+      if (!insideContent && !clickedToggle) closeMenu(mobileMenu);
+    }, { passive: true });
+
+    // ESC para cerrar
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMenu(mobileMenu);
+      }
+    });
+
+    return true;
+  }
+
+  // Si el header viene inyectado por includes.js, esperamos a que aparezca
+  function waitForHeaderAndBind() {
+    if (bindNav()) return; // ya estaba en el DOM
+
+    const obs = new MutationObserver(() => {
+      if (bindNav()) obs.disconnect();
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+
+    // fallback por si acaso
+    setTimeout(() => { bindNav(); }, 3000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', waitForHeaderAndBind);
+  } else {
+    waitForHeaderAndBind();
+  }
+})();
+
+
+// ========= HERO CAROUSEL =========
 const heroConfig = {
-  autoPlay: true,        // ⇦ pon false si no quieres autoplay
+  autoPlay: true,
   interval: 5500,
   pauseOnHover: true,
   slides: [
@@ -86,14 +131,14 @@ function initHeroCarousel(root, config){
     b.className = "hero-dot" + (i === 0 ? " is-active" : "");
     b.type = "button";
     b.addEventListener("click", () => goTo(i));
-    dotsWrap.appendChild(b);
+    dotsWrap && dotsWrap.appendChild(b);
     return b;
   });
 
   const prevBtn = document.querySelector(".hero-nav.prev");
   const nextBtn = document.querySelector(".hero-nav.next");
-  prevBtn?.addEventListener("click", () => goTo(current - 1));
-  nextBtn?.addEventListener("click", () => goTo(current + 1));
+  prevBtn && prevBtn.addEventListener("click", () => goTo(current - 1));
+  nextBtn && nextBtn.addEventListener("click", () => goTo(current + 1));
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") goTo(current - 1);
@@ -109,15 +154,16 @@ function initHeroCarousel(root, config){
     isPointerDown = false;
   });
 
+  function start(){ if (!autoPlay) return; stop(); timer = setInterval(() => goTo(current + 1), interval || 5000); const v = slidesEls[current]?.querySelector("video"); if (v) v.play().catch(()=>{}); }
+  function stop(){ if (timer){ clearInterval(timer); timer = null; } const v = slidesEls[current]?.querySelector("video"); if (v) v.pause(); }
+
   if (pauseOnHover){
-    root.closest(".hero")?.addEventListener("mouseenter", stop);
-    root.closest(".hero")?.addEventListener("mouseleave", start);
+    const hero = root.closest(".hero");
+    hero && hero.addEventListener("mouseenter", stop);
+    hero && hero.addEventListener("mouseleave", start);
   }
   document.addEventListener("visibilitychange", () => { document.hidden ? stop() : start(); });
   if (autoPlay) start();
-
-  function start(){ if (!autoPlay) return; stop(); timer = setInterval(() => goTo(current + 1), interval || 5000); const v = slidesEls[current]?.querySelector("video"); if (v) v.play().catch(()=>{}); }
-  function stop(){ if (timer){ clearInterval(timer); timer = null; } const v = slidesEls[current]?.querySelector("video"); if (v) v.pause(); }
 
   function goTo(index){
     const total = slidesEls.length;
@@ -125,9 +171,9 @@ function initHeroCarousel(root, config){
     if (next === current) return;
 
     slidesEls[current].classList.remove("is-active");
-    dots[current]?.classList.remove("is-active");
+    dots[current] && dots[current].classList.remove("is-active");
     slidesEls[next].classList.add("is-active");
-    dots[next]?.classList.add("is-active");
+    dots[next] && dots[next].classList.add("is-active");
 
     const vCur = slidesEls[current].querySelector("video"); if (vCur) vCur.pause();
     const vNext = slidesEls[next].querySelector("video"); if (vNext) vNext.play().catch(()=>{});
@@ -136,13 +182,12 @@ function initHeroCarousel(root, config){
   }
 }
 
-/* ===== Lightbox para imágenes con [data-lightbox] ===== */
+
+// ========= LIGHTBOX =========
 (function(){
-  let items = [];         // [{src, caption, group}]
-  let index = 0;
+  let items = [], index = 0;
   let overlay, media, captionEl;
 
-  // Crea overlay si no existe
   function ensureOverlay(){
     if (overlay) return overlay;
     overlay = document.createElement('div');
@@ -160,17 +205,14 @@ function initHeroCarousel(root, config){
     media = overlay.querySelector('.lb-media');
     captionEl = overlay.querySelector('.lb-caption');
 
-    // Cerrar por click fuera del contenido
     overlay.addEventListener('click', (e) => {
       const dialog = overlay.querySelector('.lb-dialog');
       if (!dialog.contains(e.target)) close();
     });
-    // Botones
     overlay.querySelector('.lb-close').addEventListener('click', close);
     overlay.querySelector('.lb-prev').addEventListener('click', prev);
     overlay.querySelector('.lb-next').addEventListener('click', next);
 
-    // Teclado
     document.addEventListener('keydown', (e) => {
       if (!overlay.classList.contains('is-open')) return;
       if (e.key === 'Escape') close();
@@ -181,9 +223,7 @@ function initHeroCarousel(root, config){
     return overlay;
   }
 
-  // Abre una galería (group) en un índice
   function open(group, startIndex){
-    // Recolecta items del mismo grupo
     const triggers = Array.from(document.querySelectorAll(`[data-lightbox][data-group="${group}"]`));
     items = triggers.map(btn => ({
       src: btn.getAttribute('data-src'),
@@ -217,7 +257,6 @@ function initHeroCarousel(root, config){
   function prev(){ index = (index - 1 + items.length) % items.length; render(); }
   function next(){ index = (index + 1) % items.length; render(); }
 
-  // Delegación: click en cualquier [data-lightbox]
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-lightbox]');
     if (!trigger) return;
@@ -228,7 +267,9 @@ function initHeroCarousel(root, config){
     open(group, startIndex);
   });
 })();
-// Año dinámico en el footer
+
+
+// ========= Año dinámico footer =========
 document.addEventListener('DOMContentLoaded', () => {
   const y = document.getElementById('yearCopy');
   if (y) y.textContent = new Date().getFullYear();

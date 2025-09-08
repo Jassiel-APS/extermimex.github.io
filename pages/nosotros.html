@@ -15,8 +15,11 @@
 </head>
 <body class="bg-[#F2F2F2] text-slate-900">
 
+<!-- Header modular -->
+<div id="header-include"></div>
+
   <!-- Header (tu nav existente) -->
-  <header class="header">
+  <!--<header class="header">
     <div class="container nav-flex">
       <div class="logo-block">
   <img src="../assets/img/logo-extermimex.png" alt="EXTERMIMEX logo" class="logo-img" style="height:48px;width:auto;object-fit:contain;">
@@ -31,7 +34,7 @@
               <li><a href="servicios-fumigacion.html">Fumigación</a></li>
               <li><a href="servicios-sanitizacion.html">Sanitización</a></li>
               <li><a href="servicios-extinguidores.html">Extinguidores</a></li>
-              <li><a href="servicios-senaletica.html">Seguridad y Señalética</a></li>
+
               <li><a href="servicios-capacitacion.html">Capacitación en Extintores</a></li>
             </ul>
           </li>
@@ -58,7 +61,7 @@
       <button class="nav-toggle" aria-label="Abrir menú" id="navToggle"><span></span><span></span><span></span></button>
     </div>
     <nav class="mobile-menu" id="mobileMenu"></nav>
-  </header>
+  </header>-->
 
   <!-- Hero -->
   <section class="bg-white/70">
@@ -194,7 +197,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#00004F] text-white pt-14 md:pt-16">
+  <!--<footer class="bg-[#00004F] text-white pt-14 md:pt-16">
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
@@ -235,10 +238,15 @@
         <p class="text-xs text-white/60">Tijuana, Baja California</p>
       </div>
     </div>
-  </footer>
+  </footer>-->
+    
+  <!-- Footer modular -->
+  <div id="footer-include"></div>
 
-  <a href="https://wa.me/526646765059" class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-[0_10px_30px_rgba(0,0,0,.2)] hover:scale-[1.03] transition" aria-label="WhatsApp">WhatsApp</a>
+  <!-- WhatsApp modular -->
+  <div id="wa-float-include"></div>
 
+  <script src="../assets/js/includes.js"></script>
   <script src="../assets/js/main.js"></script>
   <script>const y=document.getElementById('yearCopy'); if(y) y.textContent=new Date().getFullYear();</script>
 </body>
