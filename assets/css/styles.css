@@ -469,3 +469,60 @@ body.no-scroll{ overflow:hidden; }
   #clientes .grid{ gap:10px !important; }
   #clientes .text-center{ margin-bottom:8px !important; }
 }
+
+/* =========================================================
+   SECCIONES CON FONDO GRADIENTE
+   ========================================================= */
+#sectores {
+  background: #00004F;
+  background: linear-gradient(204deg, rgba(0, 0, 79, 1) 9%, rgba(56, 116, 255, 1) 100%);
+}
+
+#clientes {
+  background: #00004F;
+  background: linear-gradient(31deg, rgba(0, 0, 79, 1) 9%, rgba(56, 116, 255, 1) 100%);
+}
+
+#cta-urgente {
+  background:  #00004F;
+background: linear-gradient(204deg, rgba(0, 0, 79, 1) 0%, rgba(56, 116, 255, 1) 100%);
+}
+
+#clientes, #sectores {
+  color: #fff;
+}
+#clientes h2, #clientes h3, #clientes .section-title,
+#sectores h2, #sectores h3, #sectores .section-title {
+  color: #fff;
+}
+#clientes p, #sectores p {
+  color: #f3f4f6;
+}
+
+/* =========================================================
+   CLASES ADICIONALES
+   ========================================================= */
+.text-justify {
+  text-align: justify;
+}
+
+#clientes .bg-white,
+#clientes .bg-white * {
+  color: #010440 !important;
+}
+
+#clientes .bg-white .text-yellow-400 {
+  color: #FFD600 !important;
+}
+#clientes .bg-white svg {
+  color: #FFD600 !important;
+  fill: #FFD600 !important;
+}
+#clientes .bg-white .text-brand-800,
+#clientes .bg-white .text-slate-500,
+#clientes .bg-white .text-slate-700,
+#clientes .bg-white h3,
+#clientes .bg-white p,
+#clientes .bg-white span {
+  color: #010440 !important;
+}
