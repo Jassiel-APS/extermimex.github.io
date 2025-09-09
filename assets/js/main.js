@@ -5,80 +5,129 @@
 // ---------- helpers ----------
 const $ = (sel, root = document) => root.querySelector(sel);
 
-// ========= NAV DRAWER (mobileMenu) =========
+// ========= NAV MÓVIL (robusto) =========
 (function () {
-  function openMenu(menu) {
+  const getMenu = () => document.querySelector('#mobileMenu') || document.querySelector('#navModal');
+  const isOpen  = (m) => m && (m.classList.contains('open') || m.classList.contains('is-open'));
+
+  let lastFocus = null;
+  let ignoreUntil = 0; // evita cierre inmediato por click fuera
+  const FOCUSABLE = 'button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])';
+
+  const firstFocusable = (root) => root.querySelector(FOCUSABLE);
+  const getFocusables = (root) =>
+    Array.from(root.querySelectorAll(FOCUSABLE))
+      .filter(el => !el.disabled && el.getAttribute('aria-hidden') !== 'true');
+
+  function openMenu(menu){
     if (!menu) return;
-    menu.classList.add('open');
+    lastFocus = (document.activeElement instanceof HTMLElement) ? document.activeElement : null;
+
+    (menu.id === 'navModal') ? menu.classList.add('is-open') : menu.classList.add('open');
+    menu.removeAttribute('aria-hidden');
+    menu.removeAttribute('inert');
     document.body.classList.add('no-scroll');
+
+    const preferred = menu.querySelector('.nav-modal__close');
+    (preferred || firstFocusable(menu))?.focus();
+
+    // ignora clicks "fuera" durante un instante
+    ignoreUntil = performance.now() + 220;
   }
 
-  function closeMenu(menu) {
+  function closeMenu(menu){
     if (!menu) return;
+
+    const backTo = (lastFocus && document.contains(lastFocus)) ? lastFocus : document.querySelector('#navToggle');
+    backTo?.focus();
+
+    menu.setAttribute('aria-hidden','true');
+    menu.setAttribute('inert','');
     menu.classList.remove('open');
+    menu.classList.remove('is-open');
     document.body.classList.remove('no-scroll');
   }
 
-  function bindNav() {
-    const navToggle  = $('#navToggle');
-    const mobileMenu = $('#mobileMenu');
+  function bindNav(){
+    const navToggle = document.querySelector('#navToggle');
+    const menu = getMenu();
+    if (!navToggle || !menu) return false;
 
-    if (!navToggle || !mobileMenu) return false;
+    // evita duplicar listeners si el header se reinyecta
+    if (navToggle.dataset.bound === '1') return true;
+    navToggle.dataset.bound = '1';
 
-    // Botón hamburguesa
-    navToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      mobileMenu.classList.contains('open') ? closeMenu(mobileMenu) : openMenu(mobileMenu);
+    navToggle.addEventListener('click', (e)=>{
+      e.preventDefault(); e.stopPropagation();
+      const m = getMenu(); // siempre obtener el actual
+      isOpen(m) ? closeMenu(m) : openMenu(m);
     });
 
-    // Botón de cerrar dentro del panel (si existe)
-    const closeBtn = $('.mobile-menu-close', mobileMenu);
-    if (closeBtn) {
-      closeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        closeMenu(mobileMenu);
+    // cerrar con botones dedicados
+    const wireCloseButtons = () => {
+      const m = getMenu();
+      if (!m) return;
+      m.querySelectorAll('[data-close="modal"], .mobile-menu-close').forEach(btn=>{
+        if (btn.dataset.bound === '1') return;
+        btn.dataset.bound = '1';
+        btn.addEventListener('click', ()=> closeMenu(getMenu()));
       });
-    }
+    };
+    wireCloseButtons();
 
-    // Cerrar si clic fuera del panel
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.classList.contains('open')) return;
-      const content = $('.mobile-menu-content', mobileMenu);
+    // cerrar tocando backdrop (modal) o fuera del panel
+    document.addEventListener('click', (e)=>{
+      const t = performance.now();
+      if (t < ignoreUntil) return; // recién abierto, no cerrar
+
+      const m = getMenu();
+      if (!isOpen(m)) return;
+
+      const content = m.querySelector('.nav-modal__panel') || m.querySelector('.mobile-menu-content');
       const clickedToggle = e.target.closest('#navToggle');
-      const insideContent = content && content.contains(e.target);
-      if (!insideContent && !clickedToggle) closeMenu(mobileMenu);
-    }, { passive: true });
+      if (clickedToggle) return;
 
-    // ESC para cerrar
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-        closeMenu(mobileMenu);
-      }
+      if (content && !content.contains(e.target)) closeMenu(m);
+    }, { passive:true });
+
+    // ESC
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape') closeMenu(getMenu());
+    });
+
+    // cerrar al navegar por cualquier link del menú
+    document.addEventListener('click', (e)=>{
+      const m = getMenu();
+      if (!isOpen(m)) return;
+      const link = e.target.closest('.nav-modal a, .mobile-menu a');
+      if (link) closeMenu(m);
+    });
+
+    // trap de TAB
+    document.addEventListener('keydown', (e)=>{
+      const m = getMenu();
+      if (e.key !== 'Tab' || !isOpen(m)) return;
+      const focusables = getFocusables(m); if (!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
     return true;
   }
 
-  // Si el header viene inyectado por includes.js, esperamos a que aparezca
-  function waitForHeaderAndBind() {
-    if (bindNav()) return; // ya estaba en el DOM
-
-    const obs = new MutationObserver(() => {
-      if (bindNav()) obs.disconnect();
-    });
-    obs.observe(document.documentElement, { childList: true, subtree: true });
-
-    // fallback por si acaso
-    setTimeout(() => { bindNav(); }, 3000);
+  function waitAndBind(){
+    if (bindNav()) return;
+    const obs = new MutationObserver((_,o)=>{ if (bindNav()) o.disconnect(); });
+    obs.observe(document.documentElement, { childList:true, subtree:true });
+    setTimeout(bindNav, 3000);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', waitForHeaderAndBind);
-  } else {
-    waitForHeaderAndBind();
-  }
+  (document.readyState === 'loading')
+    ? document.addEventListener('DOMContentLoaded', waitAndBind)
+    : waitAndBind();
 })();
+
 
 
 // ========= HERO CAROUSEL =========
