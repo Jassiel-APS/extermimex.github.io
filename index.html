@@ -27,19 +27,19 @@
   </script>
 
   <!-- Tus estilos (nav + hero + móvil + fixes) -->
-  <link rel="stylesheet" href="/extermimex.github.io/assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 
   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 </head>
-<body class="bg-bg text-brand-800">
+<body class="bg-bg text-brand-800" data-aos-easing="ease-out-cubic" data-aos-duration="900" data-aos-once="true">
 
   <!-- ====== HEADER (INCLUDE) ====== -->
   <div id="header-include"></div>
   <!-- ====== /HEADER ====== -->
 
   <!-- ====== HERO (con tu CSS + overlay) ====== -->
-  <section class="hero" aria-label="EXTERMIMEX Hero">
+  <section class="hero" aria-label="EXTERMIMEX Hero" data-aos="fade-down">
     <div id="heroCarousel" class="hero-carousel" data-autoplay="true">
       <div class="hero-slide is-active">
         <img src="./assets/img/Fondo extermimex.jpg" alt="Equipo Extermimex y logo" style="width:100%;height:100%;object-fit:cover;">
@@ -70,7 +70,7 @@
   <!-- ====== /HERO ====== -->
 
   <!-- ====== SOBRE + CERTIFICACIONES (Tailwind) ====== -->
-  <section id="certificaciones" class="py-16 md:py-20">
+  <section id="certificaciones" class="py-16 md:py-20" data-aos="fade-up">
     <div class="max-w-[1200px] mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
@@ -180,7 +180,7 @@
   </section>
   <!-- ====== /SOBRE + CERTIFICACIONES ====== -->
    <!-- ====== SERVICIOS (Tailwind) ====== -->
-<section id="servicios" class="py-16 md:py-20">
+<section id="servicios" class="py-16 md:py-20" data-aos="fade-up">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
       <div>
@@ -323,7 +323,7 @@
 </section>
 <!-- ====== /SERVICIOS ====== -->
 <!-- ====== SECTORES QUE ATENDEMOS (Tailwind) ====== -->
-<section id="sectores" class="py-16 md:py-20">
+<section id="sectores" class="py-16 md:py-20" data-aos="fade-up">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
       <div>
@@ -422,7 +422,7 @@
 </section>
 <!-- ====== /SECTORES ====== -->
 <!-- ====== POR QUÉ ELEGIRNOS (Tailwind) ====== -->
-<section id="porque-elegirnos" class="py-16 md:py-20 bg-white">
+<section id="porque-elegirnos" class="py-16 md:py-20 bg-white" data-aos="fade-up">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-12">
       <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">
@@ -544,7 +544,7 @@
 </section>
 <!-- ====== /POR QUÉ ELEGIRNOS ====== -->
 <!-- ====== CLIENTES + TESTIMONIOS (Tailwind) ====== -->
-<section id="clientes" class="py-16 md:py-20">
+<section id="clientes" class="py-16 md:py-20" data-aos="fade-up">
   <div class="max-w-[1200px] mx-auto px-6">
     <!-- Encabezado -->
     <div class="text-center max-w-2xl mx-auto mb-10">
@@ -647,7 +647,7 @@
 </section>
 <!-- ====== /CLIENTES + TESTIMONIOS ====== -->
 <!-- ====== NUESTRO EQUIPO (Tailwind + Lightbox) ====== -->
-<section id="equipo" class="py-16 md:py-20 bg-white">
+<section id="equipo" class="py-16 md:py-20 bg-white" data-aos="fade-up">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-10">
       <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">Nuestro Equipo</h2>
@@ -705,7 +705,7 @@
 </section>
 <!-- ====== /NUESTRO EQUIPO ====== -->
 <!-- ====== CTA URGENTE (Tailwind) ====== -->
-<section id="cta-urgente" class="py-14 md:py-16">
+<section id="cta-urgente" class="py-14 md:py-16" data-aos="fade-up">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="bg-white rounded-2xl shadow-card border border-slate-100 p-6 md:p-10 text-center">
       <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">
@@ -727,7 +727,7 @@
 </section>
 <!-- ====== /CTA URGENTE ====== -->
 <!-- ====== CONTACTO (Tailwind) ====== -->
-<section id="contacto" class="py-16 md:py-20 bg-white">
+<section id="contacto" class="py-16 md:py-20 bg-white" data-aos="fade-up">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-10">
       <h2 class="text-2xl md:text-3xl font-extrabold text-brand-800">Contáctanos</h2>
@@ -849,5 +849,13 @@
   <script src="./assets/js/includes.js"></script>
   <script src="./assets/js/main.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
 </body>
 </html>
