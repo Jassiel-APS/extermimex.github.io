@@ -136,8 +136,16 @@ const heroConfig = {
   interval: 5500,
   pauseOnHover: true,
   slides: [
-    { type: "video", src: "media/hero1.mp4", poster: "media/hero1.jpg" },
-    { type: "image", src: "media/hero2.webp", alt: "Equipo EXTERMIMEX en operación" }
+    {
+      type: "image",
+      src: "./assets/img/Fondo extermimex.jpg",
+      alt: "Equipo Extermimex y logo"
+    },
+    {
+      type: "video",
+      src: "./assets/img/ExtermimexVideo.mp4",
+      poster: "./assets/img/Fondo extermimex.jpg"
+    }
   ]
 };
 
@@ -165,6 +173,55 @@ function initHeroCarousel(root, config){
       v.muted = true; v.loop = true; v.playsInline = true; v.preload = "metadata";
       if (i === 0) v.autoplay = true;
       slide.appendChild(v);
+
+      // Controles flotantes personalizados
+      const controls = document.createElement("div");
+      controls.className = "hero-video-controls";
+      controls.style = `position:absolute;left:0;right:0;bottom:24px;display:flex;justify-content:center;z-index:10;pointer-events:none;`;
+
+      // Botón play (blanco, semitransparente)
+      const playBtn = document.createElement("button");
+      playBtn.type = "button";
+      playBtn.innerHTML = `<svg width='48' height='48' fill='none' viewBox='0 0 48 48'><circle cx='24' cy='24' r='24' fill='white' fill-opacity='0.7'/><polygon points='20,16 36,24 20,32' fill='#00004F'/></svg>`;
+      playBtn.title = "Reproducir";
+      playBtn.style = "pointer-events:auto;background:none;border:none;cursor:pointer;transition:opacity 0.2s;opacity:1;";
+
+      // Botón pausa (blanco, semitransparente)
+      const pauseBtn = document.createElement("button");
+      pauseBtn.type = "button";
+      pauseBtn.innerHTML = `<svg width='48' height='48' fill='none' viewBox='0 0 48 48'><circle cx='24' cy='24' r='24' fill='white' fill-opacity='0.7'/><rect x='18' y='16' width='4' height='16' fill='#00004F'/><rect x='26' y='16' width='4' height='16' fill='#00004F'/></svg>`;
+      pauseBtn.title = "Pausar";
+      pauseBtn.style = "pointer-events:auto;background:none;border:none;cursor:pointer;transition:opacity 0.2s;opacity:1;";
+
+      controls.appendChild(playBtn);
+      controls.appendChild(pauseBtn);
+      slide.style.position = "relative";
+      slide.appendChild(controls);
+
+      // Mostrar solo el botón correspondiente
+      function updateControls(){
+        if (v.paused) {
+          playBtn.style.display = "inline-block";
+          pauseBtn.style.display = "none";
+        } else {
+          playBtn.style.display = "none";
+          pauseBtn.style.display = "inline-block";
+        }
+      }
+      updateControls();
+
+      playBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        v.play();
+        updateControls();
+      });
+      pauseBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        v.pause();
+        updateControls();
+      });
+      v.addEventListener("play", updateControls);
+      v.addEventListener("pause", updateControls);
     } else {
       const img = document.createElement("img");
       img.src = s.src; img.alt = s.alt || "";
@@ -214,10 +271,17 @@ function initHeroCarousel(root, config){
   document.addEventListener("visibilitychange", () => { document.hidden ? stop() : start(); });
   if (autoPlay) start();
 
+  let videoTimeout = null;
   function goTo(index){
     const total = slidesEls.length;
     const next = (index + total) % total;
     if (next === current) return;
+
+    // Limpiar timeout anterior si existe
+    if (videoTimeout) {
+      clearTimeout(videoTimeout);
+      videoTimeout = null;
+    }
 
     slidesEls[current].classList.remove("is-active");
     dots[current] && dots[current].classList.remove("is-active");
@@ -225,10 +289,35 @@ function initHeroCarousel(root, config){
     dots[next] && dots[next].classList.add("is-active");
 
     const vCur = slidesEls[current].querySelector("video"); if (vCur) vCur.pause();
-    const vNext = slidesEls[next].querySelector("video"); if (vNext) vNext.play().catch(()=>{});
+    const vNext = slidesEls[next].querySelector("video"); if (vNext) {
+      vNext.playbackRate = 1;
+      vNext.play().catch(()=>{});
+      // Espera 30 segundos antes de avanzar
+      videoTimeout = setTimeout(() => {
+        goTo(next + 1);
+      }, 30000);
+    }
     current = next;
-    if (autoPlay) start();
+    if (autoPlay && !vNext) start();
   }
+
+  function nextSlide() {
+    goTo(current + 1);
+  }
+
+  function setupVideoSlide() {
+    const activeSlide = document.querySelector('.hero-slide.is-active');
+    if (!activeSlide) return;
+    const video = activeSlide.querySelector('video');
+    if (video) {
+      video.addEventListener('ended', () => {
+        nextSlide();
+      });
+    }
+  }
+
+  // Llama esta función cada vez que cambias de slide
+  setupVideoSlide();
 }
 
 
