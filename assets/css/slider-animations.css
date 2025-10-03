@@ -1,0 +1,98 @@
+/* SLIDER INFINITO - ANIMACIONES */
+
+/* Animación del slider */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* FONDO FLUIDO - ANIMACIONES */
+
+/* Desplazamiento continuo como tinta en agua */
+@keyframes fluid-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fluid-wave {
+  0% {
+    transform: translateX(-100%) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-20px) rotate(1deg);
+  }
+  50% {
+    transform: translateX(0%) translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateX(50%) translateY(20px) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(0px) rotate(0deg);
+  }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, 
+    #00004F, #0487D9, #001a66, #003d99, 
+    #00004F, #0487D9, #001a66, #003d99);
+  background-size: 400% 400%;
+  animation: fluid-gradient 20s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-gradient-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, 
+    transparent 30%, 
+    rgba(4, 135, 217, 0.2) 50%, 
+    transparent 70%,
+    rgba(0, 0, 79, 0.1) 80%,
+    transparent 100%);
+  animation: fluid-wave 25s linear infinite;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.animated-gradient-bg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(-60deg, 
+    transparent 20%, 
+    rgba(0, 0, 79, 0.15) 40%, 
+    transparent 60%,
+    rgba(4, 135, 217, 0.1) 80%,
+    transparent 100%);
+  animation: fluid-wave 30s linear infinite reverse;
+  pointer-events: none;
+  opacity: 0.4;
+}

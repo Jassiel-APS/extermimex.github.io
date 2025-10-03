@@ -143,7 +143,7 @@ const heroConfig = {
     },
     {
       type: "video",
-      src: "./assets/img/ExtermimexVideo.mp4",
+      src: "./assets/img/Diseño sin título.mp4",
       poster: "./assets/img/Fondo extermimex.jpg"
     }
   ]
@@ -411,4 +411,33 @@ function initHeroCarousel(root, config){
 document.addEventListener('DOMContentLoaded', () => {
   const y = document.getElementById('yearCopy');
   if (y) y.textContent = new Date().getFullYear();
+});
+
+
+// Configuración de Swiper.js para el slider de empresas
+const empresasSlider = new Swiper('.empresas-slider', {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+  },
 });

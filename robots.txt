@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /admin/
+Crawl-delay: 5
+
+# Host
+Host: https://extermimex.com
+
+# Sitemaps
+Sitemap: https://extermimex.com/sitemap.xml
+Sitemap: https://extermimex.com/sitemap-images.xml

@@ -1,24 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nuestros Clientes | EXTERMIMEX</title>
   <meta name="description" content="Más de 500 clientes activos, 23+ años de experiencia y 98% de satisfacción. Testimonios y empresas que confían en nosotros."/>
-  <link rel="icon" href="../assets/img/logo-extermimex.png" type="image/png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Extermimex-Logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/Extermimex-Logo.png">
+  <link rel="apple-touch-icon" href="../assets/img/Extermimex-Logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <style>
+    /* Estilos personalizados para los carruseles */
+    .testimonios-slider .swiper-button-next,
+    .testimonios-slider .swiper-button-prev {
+      color: white;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+    
+    .testimonios-slider .swiper-button-next:after,
+    .testimonios-slider .swiper-button-prev:after {
+      font-size: 16px;
+    }
+    
+    .testimonios-slider .swiper-pagination {
+      bottom: 10px;
+    }
+    
+    .testimonios-slider .swiper-pagination-bullet {
+      background: white;
+      opacity: 0.5;
+    }
+    
+    .testimonios-slider .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+    
+    /* Estilos para el carrusel de empresas */
+    .empresas-slider .swiper-pagination {
+      position: relative;
+      margin-top: 20px;
+    }
+    
+    .empresas-slider .swiper-pagination-bullet {
+      background: #0487D9;
+      opacity: 0.5;
+    }
+    
+    .empresas-slider .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body class="bg-[#F2F2F2] text-slate-900">
-  <!-- ====== HEADER (INCLUDE) ====== -->
   <div id="header-include"></div>
-  <!-- ====== /HEADER ====== -->
-
-  <!-- Hero -->
   <section class="bg-white/70">
     <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16">
       <nav class="text-sm text-slate-500 mb-3">
-  <a href="../index.html" class="hover:underline">Inicio</a> / <span>Clientes</span>
+        <a href="../index.html" class="hover:underline">Inicio</a> / <span>Clientes</span>
       </nav>
       <h1 class="text-3xl md:text-4xl font-extrabold text-[#010440]">Nuestros Clientes</h1>
       <p class="mt-3 text-slate-600 max-w-3xl">Más de 500 clientes satisfechos confían en EXTERMIMEX para proteger sus espacios. Conoce sus testimonios.</p>
@@ -39,104 +81,189 @@
     </div>
   </section>
 
-  <!-- Testimonios -->
-  <section class="bg-white">
+  <section class="bg-gradient-to-br from-blue-900 to-blue-500" style="background: linear-gradient(to bottom right, #00004F, #0487D9);">
     <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16">
-      <h2 class="text-xl md:text-2xl font-extrabold text-[#010440] text-center">Lo que dicen nuestros clientes</h2>
-      <p class="text-center text-slate-600 mt-2">Testimonios reales de clientes.</p>
-      <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <!-- 4 cards -->
-        <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow">
-          <p class="text-amber-400">★★★★★</p>
-          <p class="mt-3 text-sm text-slate-700">“EXTERMIMEX ha sido nuestro proveedor de confianza por más de 8 años. Su profesionalismo y efectividad nos han permitido mantener instalaciones libres de plagas.”</p>
-          <p class="mt-4 text-xs text-slate-600"><strong>María González</strong> · Hotel Plaza Tijuana</p>
-        </article>
-        <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow">
-          <p class="text-amber-400">★★★★★</p>
-          <p class="mt-3 text-sm text-slate-700">“La puntualidad y calidad del servicio es excepcional. Sus técnicos calificados y uso de productos seguros nos han brindado tranquilidad.”</p>
-          <p class="mt-4 text-xs text-slate-600"><strong>Ing. Carlos Mendoza</strong> · Industrias del Norte</p>
-        </article>
-        <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow">
-          <p class="text-amber-400">★★★★★</p>
-          <p class="mt-3 text-sm text-slate-700">“Para restaurante, la higiene es fundamental. Servicio discreto y efectivo. Altamente recomendados.”</p>
-          <p class="mt-4 text-xs text-slate-600"><strong>Ana Rodríguez</strong> · Restaurante La Cocina</p>
-        </article>
-        <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow">
-          <p class="text-amber-400">★★★★★</p>
-          <p class="mt-3 text-sm text-slate-700">“Atención el mismo día y productos seguros para la familia. 5 años trabajando con ellos, siempre satisfechos.”</p>
-          <p class="mt-4 text-xs text-slate-600"><strong>Roberto Silva</strong> · Conjunto Los Pinos</p>
-        </article>
+      <h2 class="text-xl md:text-2xl font-extrabold text-white text-center">Lo que dicen nuestros clientes</h2>
+      <p class="text-center text-white/90 mt-2">Testimonios reales de clientes.</p>
+      
+      <div class="mt-8 relative">
+        <div class="swiper-container testimonios-slider overflow-hidden">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow mx-auto max-w-2xl">
+                <p class="text-amber-400 text-center text-lg">★★★★★</p>
+                <p class="mt-4 text-base text-slate-700 text-center italic leading-relaxed">"EXTERMIMEX ha sido nuestro proveedor de confianza por más de 8 años. Su profesionalismo y efectividad nos han permitido mantener instalaciones libres de plagas."</p>
+                <p class="mt-6 text-sm text-slate-600 text-center font-medium"><strong>María González</strong> · Hotel Plaza Tijuana</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow mx-auto max-w-2xl">
+                <p class="text-amber-400 text-center text-lg">★★★★★</p>
+                <p class="mt-4 text-base text-slate-700 text-center italic leading-relaxed">"La puntualidad y calidad del servicio es excepcional. Sus técnicos calificados y uso de productos seguros nos han brindado tranquilidad."</p>
+                <p class="mt-6 text-sm text-slate-600 text-center font-medium"><strong>Ing. Carlos Mendoza</strong> · Industrias del Norte</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow mx-auto max-w-2xl">
+                <p class="text-amber-400 text-center text-lg">★★★★★</p>
+                <p class="mt-4 text-base text-slate-700 text-center italic leading-relaxed">"Para restaurante, la higiene es fundamental. Servicio discreto y efectivo. Altamente recomendados."</p>
+                <p class="mt-6 text-sm text-slate-600 text-center font-medium"><strong>Ana Rodríguez</strong> · Restaurante La Cocina</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="bg-white rounded-2xl p-6 border border-slate-200 shadow mx-auto max-w-2xl">
+                <p class="text-amber-400 text-center text-lg">★★★★★</p>
+                <p class="mt-4 text-base text-slate-700 text-center italic leading-relaxed">"Atención el mismo día y productos seguros para la familia. 5 años trabajando con ellos, siempre satisfechos."</p>
+                <p class="mt-6 text-sm text-slate-600 text-center font-medium"><strong>Roberto Silva</strong> · Conjunto Los Pinos</p>
+              </article>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Empresas -->
-  <section class="bg-[#F7F7FA]">
+  <section class="bg-white">
     <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16">
       <h3 class="text-xl font-extrabold text-[#010440] text-center">Empresas que confían en nosotros</h3>
       <p class="text-center text-slate-600 mt-2">Trabajamos con líderes de Tijuana y Baja California.</p>
 
-      <div class="mt-8 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- 8 logo-cards simples -->
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Hotel Plaza Tijuana</div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Industrias del Norte</div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Restaurante La Cocina</div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Hospital General</div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Escuela Benito Juárez</div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Plaza Río</div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Residencial Los Pinos</div>
-        <div class="bg-white rounded-xl border border-slate-200 p-5 text-center shadow">Farmacia San Pablo</div>
+      <div class="mt-8">
+        <div class="swiper-container empresas-slider overflow-hidden"> <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="bg-slate-50 rounded-xl border border-slate-200 p-6 text-center shadow h-32 flex items-center justify-center">
+                <img src="../assets/img/empresas/empresa1.jpg" alt="Hotel Plaza Tijuana" class="max-h-full max-w-full object-contain">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="bg-slate-50 rounded-xl border border-slate-200 p-6 text-center shadow h-32 flex items-center justify-center">
+                <img src="../assets/img/empresas/empresa2.jpg" alt="Industrias del Norte" class="max-h-full max-w-full object-contain">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="bg-slate-50 rounded-xl border border-slate-200 p-6 text-center shadow h-32 flex items-center justify-center">
+                <img src="../assets/img/empresas/empresa3.jpg" alt="Restaurante La Cocina" class="max-h-full max-w-full object-contain">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="bg-slate-50 rounded-xl border border-slate-200 p-6 text-center shadow h-32 flex items-center justify-center">
+                <img src="../assets/img/empresas/empresa4.jpg" alt="Hospital General" class="max-h-full max-w-full object-contain">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="bg-slate-50 rounded-xl border border-slate-200 p-6 text-center shadow h-32 flex items-center justify-center">
+                <img src="../assets/img/empresas/empresa5.jpg" alt="Escuela Benito Juárez" class="max-h-full max-w-full object-contain">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="bg-slate-50 rounded-xl border border-slate-200 p-6 text-center shadow h-32 flex items-center justify-center">
+                <img src="../assets/img/empresas/empresa6.jpg" alt="Plaza Río" class="max-h-full max-w-full object-contain">
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sectores -->
-  <section id="sectores" class="bg-white">
+  <section id="sectores" class="bg-gradient-to-br from-blue-900 to-blue-500" style="background: linear-gradient(to bottom right, #00004F, #0487D9);">
     <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16">
-      <h3 class="text-xl font-extrabold text-[#010440] text-center">Sectores que Atendemos</h3>
-      <p class="text-center text-slate-600 mt-2">Servicios especializados por industria.</p>
+      <h3 class="text-xl font-extrabold text-white text-center">Sectores que Atendemos</h3>
+      <p class="text-center text-white/90 mt-2 text-justify">Servicios especializados por industria.</p>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow text-center">
-          <p class="font-semibold">Hotelería y Turismo</p><p class="text-xs text-slate-600">Hoteles y moteles</p>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 shadow text-center">
+          <p class="font-semibold text-white">Hotelería y Turismo</p><p class="text-xs text-white/80 text-justify">Hoteles y moteles</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow text-center">
-          <p class="font-semibold">Industria y Manufactura</p><p class="text-xs text-slate-600">Plantas y maquiladoras</p>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 shadow text-center">
+          <p class="font-semibold text-white">Industria y Manufactura</p><p class="text-xs text-white/80 text-justify">Plantas y maquiladoras</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow text-center">
-          <p class="font-semibold">Restaurantes y Alimentos</p><p class="text-xs text-slate-600">Restaurantes y procesadoras</p>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 shadow text-center">
+          <p class="font-semibold text-white">Restaurantes y Alimentos</p><p class="text-xs text-white/80 text-justify">Restaurantes y procesadoras</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow text-center">
-          <p class="font-semibold">Sector Salud</p><p class="text-xs text-slate-600">Hospitales y laboratorios</p>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 shadow text-center">
+          <p class="font-semibold text-white">Sector Salud</p><p class="text-xs text-white/80 text-justify">Hospitales y laboratorios</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow text-center">
-          <p class="font-semibold">Educación</p><p class="text-xs text-slate-600">Universidades y colegios</p>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 shadow text-center">
+          <p class="font-semibold text-white">Educación</p><p class="text-xs text-white/80 text-justify">Universidades y colegios</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow text-center">
-          <p class="font-semibold">Residencial</p><p class="text-xs text-slate-600">Casas y fraccionamientos</p>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 shadow text-center">
+          <p class="font-semibold text-white">Residencial</p><p class="text-xs text-white/80 text-justify">Casas y fraccionamientos</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="bg-[#F7F7FA]">
     <div class="max-w-[1100px] mx-auto px-6 py-12 md:py-16 text-center">
       <h3 class="text-xl md:text-2xl font-extrabold text-[#010440]">¿Listo para unirte a nuestros clientes satisfechos?</h3>
       <p class="text-slate-600 mt-2">Solicita tu cotización gratuita.</p>
-  <a href="contacto.html" class="mt-5 inline-flex px-5 py-3 rounded-xl bg-[#0084DD] text-white font-semibold shadow hover:bg-[#0487D9]">Contactar</a>
+      <a href="contacto.html" class="mt-5 inline-flex px-5 py-3 rounded-xl bg-[#0084DD] text-white font-semibold shadow hover:bg-[#0487D9]">Contactar</a>
     </div>
   </section>
 
-  <!-- ====== FOOTER (INCLUDE) ====== -->
   <div id="footer-include"></div>
-  <!-- ====== /FOOTER ====== -->
-
-  <!-- ====== BOTÓN FLOTANTE WHATSAPP (INCLUDE) ====== -->
   <div id="wa-float-include"></div>
-  <!-- ====== /BOTÓN FLOTANTE WHATSAPP ====== -->
-
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/includes.js"></script>
-  <script>const y=document.getElementById('yearCopy'); if(y) y.textContent=new Date().getFullYear();</script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const y=document.getElementById('yearCopy'); if(y) y.textContent=new Date().getFullYear();
+    
+    // Inicializar Swiper para el slider de testimonios
+    var testimoniosSwiper = new Swiper('.testimonios-slider', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.testimonios-slider .swiper-button-next',
+        prevEl: '.testimonios-slider .swiper-button-prev',
+      },
+      pagination: {
+        el: '.testimonios-slider .swiper-pagination',
+        clickable: true,
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      }
+    });
+    
+    // Inicializar Swiper para el slider de empresas
+    var empresasSwiper = new Swiper('.empresas-slider', {
+      slidesPerView: 2, // 🚀 MEJORA: Mostrar 2 logos en móvil
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.empresas-slider .swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 30
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 30
+        }
+      }
+    });
+  </script>
 </body>
 </html>

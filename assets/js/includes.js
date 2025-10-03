@@ -39,5 +39,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   await includeHTML('#header-include', base + 'header.html');
   await includeHTML('#footer-include', base + 'footer.html');
   await includeHTML('#wa-float-include', base + 'whatsapp-float.html');
+  await includeHTML('#slider-sectores-include', base + 'slider-sectores.html');
   setActiveNav();
 });
