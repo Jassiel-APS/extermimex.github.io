@@ -141,11 +141,16 @@ const heroConfig = {
       src: "./assets/img/Fondo extermimex.jpg",
       alt: "Equipo Extermimex y logo"
     },
-    {
+    /*{
       type: "video",
       src: "./assets/img/Diseño sin título.mp4",
       poster: "./assets/img/Fondo extermimex.jpg"
-    }
+    }*/
+   {
+      type: "image",
+      src: "./assets/img/Fondo extermimex 2.jpg",
+      alt: "Servicio de fumigación"
+   }
   ]
 };
 
