@@ -33,9 +33,11 @@ function setActiveNav() {
 
 // Inicializa los includes y nav activo
 window.addEventListener('DOMContentLoaded', async () => {
-  // Detecta si la página está en una subcarpeta (ej: /pages/)
-  const isSubfolder = window.location.pathname.includes('/pages/');
-  const base = isSubfolder ? '../components/' : 'components/';
+  // Usar rutas root-relative para que los includes funcionen desde permalinks (ej: /servicios-fumigacion/)
+  // Antes se usaban rutas relativas ('components/' o '../components/'), lo que provocaba requests a
+  // /servicios-fumigacion/components/header.html (no existe). Con '/' garantizamos que se carguen
+  // desde la raíz del sitio: /components/header.html
+  const base = '/components/';
   await includeHTML('#header-include', base + 'header.html');
   await includeHTML('#footer-include', base + 'footer.html');
   await includeHTML('#wa-float-include', base + 'whatsapp-float.html');
