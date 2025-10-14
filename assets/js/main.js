@@ -420,12 +420,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ========= CARRUSEL DE TESTIMONIOS =========
-document.addEventListener('DOMContentLoaded', () => {
+// Inicializa el carrusel de testimonios; se puede invocar cuando el DOM y los includes estén listos.
+function initTestimonialsCarousel() {
+  // Evitar inicializar dos veces
+  if (window.__testimonialsInitialized) return;
+  window.__testimonialsInitialized = true;
+
   const carousel = document.getElementById('testimoniosCarousel');
   if (!carousel) return;
 
   const track = carousel.querySelector('#testimoniosTrack');
-  const slides = track.querySelectorAll('.testimonio-slide');
+  const slides = track ? track.querySelectorAll('.testimonio-slide') : [];
   const prevBtn = carousel.querySelector('#testimoniosPrev');
   const nextBtn = carousel.querySelector('#testimoniosNext');
   const dotsContainer = carousel.querySelector('#testimoniosDots');
@@ -453,9 +458,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function createDots() {
     if (!dotsContainer) return;
     dotsContainer.innerHTML = '';
-    
+
     const totalDots = Math.ceil(slides.length / slidesToShow);
-    
+
     for (let i = 0; i < totalDots; i++) {
       const dot = document.createElement('button');
       dot.className = `testimonio-dot ${i === 0 ? 'active' : ''}`;
@@ -470,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideWidth = 100 / slidesToShow;
     const maxIndex = Math.max(0, slides.length - slidesToShow);
     currentIndex = Math.min(currentIndex, maxIndex);
-    
+
     const translateX = -(currentIndex * slideWidth);
     track.style.transform = `translateX(${translateX}%)`;
 
@@ -567,10 +572,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   track.addEventListener('touchend', (e) => {
     if (!isDragging) return;
-    
+
     const endX = e.changedTouches[0].clientX;
     const diffX = startX - endX;
-    
+
     if (Math.abs(diffX) > 50) { // Mínimo 50px de desplazamiento
       if (diffX > 0) {
         nextSlide();
@@ -578,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
         prevSlide();
       }
     }
-    
+
     isDragging = false;
     startAutoPlay();
   }, { passive: true });
@@ -617,7 +622,32 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoPlay();
     }
   });
-});
+}
+
+// Ejecutar la inicialización cuando el DOM esté listo o cuando los includes terminen de cargarse
+function whenReadyForTestimonials() {
+  // Si ya existe el carousel (por ejemplo, no se hace include), inicializar de inmediato
+  if (document.getElementById('testimoniosCarousel')) {
+    initTestimonialsCarousel();
+    return;
+  }
+
+  // Esperar al evento personalizado que dispara includes.js
+  const onIncludes = () => {
+    initTestimonialsCarousel();
+    document.removeEventListener('includes:loaded', onIncludes);
+  };
+  document.addEventListener('includes:loaded', onIncludes);
+
+  // También intentar cuando el DOMContentLoaded ocurra (por compatibilidad)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.getElementById('testimoniosCarousel')) initTestimonialsCarousel();
+    });
+  }
+}
+
+whenReadyForTestimonials();
 
 // Configuración de Swiper.js para el slider de empresas
 const empresasSlider = new Swiper('.empresas-slider', {

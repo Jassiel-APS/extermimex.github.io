@@ -11,6 +11,29 @@ async function includeHTML(selector, url) {
   }
 }
 
+// Carga todos los elementos que usen el atributo data-include
+async function includeAllDataInclude(basePath = '/components/') {
+  const nodes = document.querySelectorAll('[data-include]');
+  if (!nodes || nodes.length === 0) return;
+  const promises = Array.from(nodes).map(async (node) => {
+    // Allow absolute or root-relative paths in the attribute; if it's a relative path, prefix with basePath
+    let url = node.getAttribute('data-include').trim();
+    if (!url) return;
+    if (!url.startsWith('/') && !url.match(/^https?:/)) {
+      // relative path -> make it root-relative
+      url = basePath + url.replace(/^\/+/, '');
+    }
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('No se pudo cargar ' + url);
+      node.innerHTML = await res.text();
+    } catch (e) {
+      node.innerHTML = '<!-- Error al cargar ' + url + ' -->';
+    }
+  });
+  await Promise.all(promises);
+}
+
 // Detecta la página actual y marca el nav activo
 function setActiveNav() {
   const path = window.location.pathname.split('/').pop();
@@ -42,5 +65,15 @@ window.addEventListener('DOMContentLoaded', async () => {
   await includeHTML('#footer-include', base + 'footer.html');
   await includeHTML('#wa-float-include', base + 'whatsapp-float.html');
   await includeHTML('#slider-sectores-include', base + 'slider-sectores.html');
+  // Cargar cualquier elemento con data-include (por ejemplo: testimonios)
+  await includeAllDataInclude(base);
   setActiveNav();
+
+  // Disparar evento para notificar que los includes han sido cargados
+  try {
+    const evt = new CustomEvent('includes:loaded');
+    document.dispatchEvent(evt);
+  } catch (e) {
+    // noop
+  }
 });
