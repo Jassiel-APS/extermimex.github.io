@@ -80,7 +80,7 @@
         23+ años de experiencia en control de plagas y seguridad industrial.
       </div>
       <div class="hero-ctas">
-        <a href="https://wa.me/526646765059" class="btn-primary">Cotizar por WhatsApp</a>
+  <a href="https://wa.me/526642304184" class="btn-primary">Cotizar por WhatsApp</a>
         <a href="tel:664-676-5059" class="btn-outline">Llamar</a>
         <a href="#certificaciones" class="btn-ghost">Ver certificaciones</a>
       </div>
@@ -333,7 +333,7 @@
 
     <!-- CTA secundaria bajo grid -->
     <div class="text-center mt-10">
-      <a href="https://wa.me/526646765059" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+  <a href="https://wa.me/526642304184" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
         ¿No encuentras lo que buscas? Escríbenos por WhatsApp
       </a>
     </div>
@@ -666,7 +666,7 @@
 
     <!-- CTA inferior -->
     <div class="text-center mt-10">
-      <a href="https://wa.me/526646765059" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+  <a href="https://wa.me/526642304184" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
         ¿Necesitas cuadrilla hoy? Escríbenos por WhatsApp
       </a>
     </div>
@@ -684,7 +684,7 @@
         Atención el mismo día en servicios de urgencia. Escríbenos por WhatsApp o llámanos para pasar pronto.
       </p>
       <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
-        <a href="https://wa.me/526646765059" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+  <a href="https://wa.me/526642304184" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
           Cotizar por WhatsApp
         </a>
         <a href="tel:664-676-5059" class="inline-flex items-center px-5 py-3 rounded-xl bg-white text-brand-500 font-semibold border-2 border-brand-500 hover:bg-blue-50">
@@ -708,7 +708,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Formulario -->
       <div class="bg-white rounded-2xl shadow-card border border-slate-100 p-6 md:p-8">
-        <form id="contactForm" class="space-y-4" autocomplete="on">
+  <form id="contactForm" class="space-y-4" autocomplete="on" data-emailjs="true" data-emailjs-service="service_h8rqyyg" data-emailjs-template="template_peopf6r" data-emailjs-user="XMpyoG5gtgxD4MV19">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label for="name" class="block text-sm font-medium text-brand-800">Nombre</label>
@@ -750,14 +750,17 @@
 
           <!-- Honeypot anti-bots -->
           <input type="text" name="company" id="company" class="hidden" tabindex="-1" autocomplete="off" />
+          <!-- Formspree hidden fields: replace YOURENDPOINT with your Formspree id -->
+          <input type="hidden" name="_subject" value="Nueva consulta desde sitio EXTERMIMEX">
+          <input type="hidden" name="_captcha" value="false">
 
           <div class="flex items-center gap-3 pt-2">
             <button type="submit"
                     class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
-              Enviar por WhatsApp
-            </button>
-            <a href="mailto:extermi-mex@hotmail.com" class="inline-flex items-center px-5 py-3 rounded-xl bg-white text-brand-500 font-semibold border-2 border-brand-500 hover:bg-blue-50">
               Enviar por correo
+            </button>
+            <a href="https://wa.me/526642304184" class="inline-flex items-center px-5 py-3 rounded-xl bg-white text-brand-500 font-semibold border-2 border-brand-500 hover:bg-blue-50">
+              Enviar por WhatsApp
             </a>
           </div>
 
@@ -809,7 +812,7 @@
             </li>
           </ul>
           <div class="mt-4">
-            <a href="https://wa.me/526646765059" class="inline-flex items-center px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
+            <a href="https://wa.me/526642304184" class="inline-flex items-center px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold shadow-card hover:bg-brand-600">
               WhatsApp directo
             </a>
           </div>
@@ -847,8 +850,70 @@
 <div id="wa-float-include"></div>
 <!-- ====== /BOTÓN FLOTANTE WHATSAPP ====== -->
 
+<!-- ====== MODALES GLOBALES (ENVÍO FORM) ====== -->
+<div id="modal-root" aria-live="polite">
+  <!-- Success modal -->
+  <div id="modal-success" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-lg border border-green-100 overflow-hidden">
+      <div class="p-6 text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-green-50 flex items-center justify-center mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3 class="text-lg font-semibold text-green-700">Solicitud enviada</h3>
+        <p class="mt-2 text-sm text-slate-600">Gracias — hemos recibido tu solicitud. Te contactaremos pronto.</p>
+        <div class="mt-4"><button data-close-modal="modal-success" class="px-4 py-2 rounded-xl bg-green-600 text-white font-semibold">Aceptar</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error modal -->
+  <div id="modal-error" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-lg border border-red-100 overflow-hidden">
+      <div class="p-6 text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-red-50 flex items-center justify-center mb-4">
+          <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </div>
+        <h3 class="text-lg font-semibold text-red-700">Error</h3>
+        <p id="modal-error-msg" class="mt-2 text-sm text-slate-600">Por favor completa los campos correctamente.</p>
+        <div class="mt-4"><button data-close-modal="modal-error" class="px-4 py-2 rounded-xl bg-red-600 text-white font-semibold">Cerrar</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ====== /MODALES ====== -->
+
 
   <script src="./assets/js/includes.js"></script>
+  <!-- Optional local config: create `assets/js/emailjs-config.js` (ignored) with your keys -->
+  <script src="./assets/js/emailjs-config.js"></script>
+  <!-- EmailJS SDK (cliente) - reemplaza YOUR_USER_ID en data-emailjs-user o aquí -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      try {
+        // Prefer the (untracked) window.__EMAILJS_CONFIG object when available.
+        // Create `assets/js/emailjs-config.js` with:
+        // window.__EMAILJS_CONFIG = { serviceId: 'service_h8rqyyg', templateId: 'template_peopf6r', userId: 'XMpyoG5gtgxD4MV19' };
+        if (window.emailjs) {
+          var cfg = window.__EMAILJS_CONFIG || {};
+          var userFromAttr = '';
+          try { userFromAttr = document.getElementById('contactForm')?.dataset?.emailjsUser || ''; } catch(e){}
+          var publicKey = cfg.userId || userFromAttr || 'XMpyoG5gtgxD4MV19';
+          try { if (publicKey) emailjs.init(publicKey); } catch(e) { /* noop */ }
+
+          // Optionally write service/template back into the form dataset for main.js to read
+          try {
+            var form = document.getElementById('contactForm');
+            if (form) {
+              if (cfg.serviceId) form.dataset.emailjsService = cfg.serviceId;
+              if (cfg.templateId) form.dataset.emailjsTemplate = cfg.templateId;
+              if (cfg.userId) form.dataset.emailjsUser = cfg.userId;
+            }
+          } catch(e){}
+        }
+      } catch (e) { /* noop */ }
+    })();
+  </script>
   <script src="./assets/js/main.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

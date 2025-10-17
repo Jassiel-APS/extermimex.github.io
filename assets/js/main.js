@@ -418,6 +418,115 @@ document.addEventListener('DOMContentLoaded', () => {
   if (y) y.textContent = new Date().getFullYear();
 });
 
+// ========== FORM: Envío a Formspree (mejor UX con fetch)
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const msgEl = document.getElementById('formMsg');
+
+  // Modal helpers
+  function showModal(id, msg){
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    if (msg && id === 'modal-error') {
+      const m = document.getElementById('modal-error-msg'); if (m) m.textContent = msg;
+    }
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+  function hideModal(id){
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  }
+
+  document.addEventListener('click', (e)=>{
+    const btn = e.target.closest('[data-close-modal]');
+    if (!btn) return;
+    const id = btn.getAttribute('data-close-modal');
+    hideModal(id);
+  });
+
+  function isBlank(val){ return !val || String(val).trim().length === 0; }
+
+  form.addEventListener('submit', async (e) => {
+    // Honeypot
+    if (form.company && form.company.value) {
+      if (msgEl) msgEl.textContent = 'Detectado como spam.';
+      return;
+    }
+
+    // Client-side validation: no campos vacíos o solo espacios
+    const name = form.name?.value;
+    const phone = form.phone?.value;
+    const email = form.email?.value;
+    const message = form.message?.value;
+    if (isBlank(name) || isBlank(phone) || isBlank(email) || isBlank(message)) {
+      showModal('modal-error', 'Todos los campos son obligatorios y no pueden quedar en blanco.');
+      return;
+    }
+
+    // If EmailJS is enabled on the form, use it
+    const useEmailJS = form.dataset.emailjs === 'true';
+    if (useEmailJS && window.emailjs) {
+      e.preventDefault();
+      const service = form.dataset.emailjsService || '';
+      const template = form.dataset.emailjsTemplate || '';
+      const user = form.dataset.emailjsUser || '';
+
+      try {
+        if (user && emailjs.init) emailjs.init(user);
+        await emailjs.sendForm(service, template, form);
+        showModal('modal-success');
+        form.reset();
+      } catch (err) {
+        console.error('EmailJS error', err);
+        showModal('modal-error', 'Error al enviar (EmailJS). Intenta más tarde.');
+      }
+      return;
+    }
+
+    // Fallback: if action includes formspree, use fetch (already implemented earlier)
+    const action = form.getAttribute('action') || '';
+    if (!action.includes('formspree.io')) return; // let native submit if no handler
+
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        if (msgEl) {
+          msgEl.classList.remove('text-red-600');
+          msgEl.classList.add('text-green-600');
+          msgEl.textContent = 'Gracias — tu mensaje fue enviado correctamente.';
+        }
+        form.reset();
+      } else {
+        const json = await res.json().catch(()=>({}));
+        const err = (json && json.error) ? json.error : 'Error al enviar el formulario.';
+        if (msgEl) {
+          msgEl.classList.remove('text-green-600');
+          msgEl.classList.add('text-red-600');
+          msgEl.textContent = err;
+        }
+      }
+    } catch (err) {
+      if (msgEl) {
+        msgEl.classList.remove('text-green-600');
+        msgEl.classList.add('text-red-600');
+        msgEl.textContent = 'Error de red. Intenta nuevamente.';
+      }
+    }
+  });
+});
+
 
 // ========= CARRUSEL DE TESTIMONIOS =========
 // Inicializa el carrusel de testimonios; se puede invocar cuando el DOM y los includes estén listos.
